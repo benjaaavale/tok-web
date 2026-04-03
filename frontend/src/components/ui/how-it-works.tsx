@@ -92,24 +92,47 @@ StepCard.displayName = "StepCard";
 /* Connector line between steps (desktop only)                         */
 /* ------------------------------------------------------------------ */
 const ConnectorLine = memo(({ index }: { index: number }) => (
-  <motion.div
-    initial={{ scaleX: 0 }}
-    whileInView={{ scaleX: 1 }}
-    viewport={{ once: true, margin: "-40px" }}
-    transition={{ duration: 0.7, delay: 0.3 + index * 0.15 }}
-    className="hidden lg:block absolute top-8 left-1/2 w-full h-[2px] origin-left"
-    style={{ zIndex: 5 }}
-  >
-    <div className="w-full h-full bg-gradient-to-r from-gray-200 dark:from-white/10 to-gray-200 dark:to-white/10 rounded-full" />
-    {/* Animated dot */}
+  <>
+    {/* DESKTOP HORIZONTAL LINE */}
     <motion.div
-      initial={{ left: "0%" }}
-      whileInView={{ left: "100%" }}
+      initial={{ scaleX: 0 }}
+      whileInView={{ scaleX: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 1.2, delay: 0.5 + index * 0.15, ease: "easeInOut" }}
-      className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"
-    />
-  </motion.div>
+      transition={{ duration: 0.7, delay: 0.3 + index * 0.15 }}
+      className="hidden lg:block absolute top-8 left-1/2 w-full h-[2px] origin-left"
+      style={{ zIndex: 5 }}
+    >
+      <div className="w-full h-full bg-gradient-to-r from-gray-200 dark:from-white/10 to-gray-200 dark:to-white/10 rounded-full" />
+      {/* Animated dot */}
+      <motion.div
+        initial={{ left: "0%" }}
+        whileInView={{ left: "100%" }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 1.2, delay: 0.5 + index * 0.15, ease: "easeInOut" }}
+        className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+      />
+    </motion.div>
+
+    {/* MOBILE VERTICAL LINE */}
+    <motion.div
+      initial={{ scaleY: 0 }}
+      whileInView={{ scaleY: 1 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.7, delay: 0.3 + index * 0.15 }}
+      className="block lg:hidden absolute top-[4rem] left-1/2 w-[2px] h-[calc(100%+1rem)] origin-top -translate-x-1/2"
+      style={{ zIndex: -1 }}
+    >
+      <div className="w-full h-full bg-gradient-to-b from-gray-200 dark:from-white/10 to-gray-200 dark:to-white/10 rounded-full" />
+      {/* Animated dot directly traveling down */}
+      <motion.div
+        initial={{ top: "0%" }}
+        whileInView={{ top: "100%" }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 1.2, delay: 0.5 + index * 0.15, ease: "easeInOut" }}
+        className="absolute left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+      />
+    </motion.div>
+  </>
 ));
 
 ConnectorLine.displayName = "ConnectorLine";

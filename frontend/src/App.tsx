@@ -98,7 +98,7 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative z-20 pt-0 pb-2"
+          className="relative z-20 -mt-20 md:-mt-32 pb-16"
         >
           <section className="relative w-full">
             <div className="w-full relative max-w-[100vw]">
