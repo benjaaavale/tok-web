@@ -24,14 +24,14 @@ export default function AnimatedGradientButton({
           variant="ghost"
           size="lg"
           onClick={onClick}
-          className="relative rounded-full px-8 py-6 text-lg font-semibold
+          className="relative rounded-full px-4 py-3 md:px-8 md:py-6 text-sm md:text-lg font-semibold
                       bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800
                       text-slate-900 dark:text-white transition-all duration-300
                       group-hover:-translate-y-1 group-hover:shadow-2xl
                       border-0 backdrop-blur-sm h-auto"
         >
           <motion.span 
-            className="flex items-center gap-3"
+            className="flex items-center gap-1.5 md:gap-3"
             whileHover={{ x: 2 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >

@@ -39,21 +39,21 @@ function App() {
                       Con IA
                     </span>
                   </h1>
-                  <div className="flex flex-col sm:flex-row gap-6 sm:gap-6 w-full sm:w-auto items-start justify-center">
-                    <div className="flex flex-col items-center">
+                  <div className="flex flex-row gap-2 sm:gap-6 w-full sm:w-auto items-start justify-center px-2">
+                    <div className="flex flex-col items-center flex-1 sm:flex-auto">
                       <AnimatedGradientButton 
                         text="Pruébalo gratis" 
                       />
-                      <span className="text-sm font-medium text-gray-500 mt-3 flex items-center justify-center gap-1">
-                        <IconBolt size={16} className="text-amber-500" /> por 5 días
+                      <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 flex items-center justify-center gap-1 text-center leading-tight">
+                        <IconBolt size={12} className="text-amber-500 sm:w-4 sm:h-4" /> por 5 días
                       </span>
                     </div>
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center flex-1 sm:flex-auto">
                       <AnimatedGradientButton 
                         text="Agenda con ventas" 
                         icon={<IconCalendarEvent size={24} />} 
                       />
-                      <span className="text-sm font-medium text-gray-500 mt-3">
+                      <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 text-center leading-tight">
                         e impulsa tu negocio
                       </span>
                     </div>
