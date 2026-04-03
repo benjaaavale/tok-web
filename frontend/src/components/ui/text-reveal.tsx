@@ -33,9 +33,8 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
   return (
     <div
       ref={targetRef}
-      className={cn("relative z-10 h-[250vh]", className)}
+      className={cn("relative z-10 h-[150vh]", className)}
     >
-      {/* Sticky content full screen height to lock text in center while scrolling */}
       <div className="sticky top-0 mx-auto flex h-screen max-w-4xl items-center justify-center px-4 sm:px-6 lg:px-8 bg-transparent">
         <p 
           className="flex flex-wrap text-3xl md:text-5xl lg:text-6xl xl:text-7xl justify-center leading-tight md:leading-snug font-bold"

@@ -193,7 +193,7 @@ export function InteractiveFeatureShowcase() {
         </div>
 
         {/* RIGHT COLUMN: Mock Chat UI */}
-        <div className="relative h-[600px] w-full flex items-center justify-center rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-zinc-900/50 dark:to-zinc-900/80 border border-gray-200/50 dark:border-zinc-800/50 shadow-xl dark:shadow-2xl">
+        <div className="relative h-[450px] lg:h-[600px] w-full flex items-center justify-center rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-zinc-900/50 dark:to-zinc-900/80 border border-gray-200/50 dark:border-zinc-800/50 shadow-xl dark:shadow-2xl">
           
           {/* Ambient Glow */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15)_0%,transparent_70%)] pointer-events-none" />

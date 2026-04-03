@@ -110,7 +110,7 @@ function App() {
         {/* Interactive Feature Showcase Section */}
         <motion.section 
           id="features" 
-          className="pt-24 pb-8 relative z-10 w-full"
+          className="pt-0 pb-0 relative z-10 w-full"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -144,7 +144,7 @@ function App() {
         </motion.section>
 
         {/* How It Works Section — transparent over background paths */}
-        <div className="relative z-10 py-12">
+        <div className="relative z-10 pt-0 pb-12">
           <HowItWorks />
         </div>
 
