@@ -1,0 +1,48 @@
+﻿node.exe : 
+(node:22916) 
+[DEP0176] 
+DeprecationWarning: 
+fs.F_OK is 
+deprecated, use 
+fs.constants.F_OK 
+instead
+En línea: 1 
+Carácter: 1
++ & "C:\Program Files
+\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: ((node:2   
+ 2916) [D...ts.F_    
+OK instead:Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+(Use `node 
+--trace-deprecation 
+...` to show where 
+the warning was 
+created)
+Creating an optimized production build...
+Failed to compile.
+
+TS2724: '"framer-motion"' has no exported member named 'DynamicAnimationOptions'. Did you mean 'AnimationOptions'?
+  [0m [90m 10 |[39m   useState[33m,[39m
+   [90m 11 |[39m } [36mfrom[39m [32m"react"[39m
+  [31m[1m>[22m[39m[90m 12 |[39m [36mimport[39m { [33mDynamicAnimationOptions[39m[33m,[39m motion } [36mfrom[39m [32m"framer-motion"[39m
+   [90m    |[39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 13 |[39m [36mimport[39m { cn } [36mfrom[39m [32m"@/lib/utils"[39m
+   [90m 14 |[39m
+   [90m 15 |[39m [36minterface[39m [33mTextProps[39m {[0m
+
+
