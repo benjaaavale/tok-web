@@ -98,7 +98,7 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative z-20 py-2"
+          className="relative z-20 pt-0 pb-2"
         >
           <section className="relative w-full">
             <div className="w-full relative max-w-[100vw]">
@@ -108,7 +108,14 @@ function App() {
         </motion.div>
 
         {/* Interactive Feature Showcase Section */}
-        <section id="features" className="py-24 relative z-10 w-full">
+        <motion.section 
+          id="features" 
+          className="pt-24 pb-8 relative z-10 w-full"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-black dark:text-white">
@@ -134,7 +141,7 @@ function App() {
             
             <InteractiveFeatureShowcase />
           </div>
-        </section>
+        </motion.section>
 
         {/* How It Works Section — transparent over background paths */}
         <div className="relative z-10 py-12">

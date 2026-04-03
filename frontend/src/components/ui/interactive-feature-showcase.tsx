@@ -107,7 +107,7 @@ export function InteractiveFeatureShowcase() {
 
   return (
     <div 
-      className="w-full max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8"
+      className="w-full max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
