@@ -69,20 +69,19 @@ function Header1() {
     const [isOpen, setOpen] = useState(false);
     return (
         <header className="w-full z-[100] fixed top-0 left-0 bg-[#f8fafc] dark:bg-[#0e0e0e] shadow-sm border-b border-gray-200/50 dark:border-white/5">
-            <div className="max-w-7xl relative mx-auto min-h-20 flex px-4 sm:px-6 lg:px-8 gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
-                <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
+            <div className="max-w-7xl relative mx-auto min-h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
+                {/* 1. Desktop Nav */}
+                <div className="hidden lg:flex flex-1 justify-start">
                     <NavigationMenu className="flex justify-start items-start">
                         <NavigationMenuList className="flex justify-start gap-1 flex-row">
                             {navigationItems.map((item) => (
                                 <NavigationMenuItem key={item.title}>
                                     {item.href ? (
-                                        <>
-                                            <NavigationMenuLink href={item.href}>
-                                                <Button variant="ghost" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-                                                    {item.title}
-                                                </Button>
-                                            </NavigationMenuLink>
-                                        </>
+                                        <NavigationMenuLink href={item.href}>
+                                            <Button variant="ghost" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+                                                {item.title}
+                                            </Button>
+                                        </NavigationMenuLink>
                                     ) : (
                                         <>
                                             <NavigationMenuTrigger className="font-medium text-sm text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors bg-transparent">
@@ -122,65 +121,54 @@ function Header1() {
                         </NavigationMenuList>
                     </NavigationMenu>
                 </div>
-                <div className="flex lg:justify-center items-center gap-2">
-                    <img src="/images/logo-black.png" alt="ToK Logo" className="h-14 sm:h-16 dark:hidden" />
-                    <img src="/images/logo-white.png" alt="ToK Logo" className="h-14 sm:h-16 hidden dark:block" />
+
+                {/* 2. Logo (Absolutely Centered) */}
+                <div className="absolute left-1/2 -translate-x-1/2 flex justify-center items-center">
+                    <img src="/images/logo-black.png" alt="ToK Logo" className="h-[28px] sm:h-8 lg:h-10 w-auto object-contain dark:hidden" />
+                    <img src="/images/logo-white.png" alt="ToK Logo" className="h-[28px] sm:h-8 lg:h-10 w-auto object-contain hidden dark:block" />
                 </div>
-                <div className="flex justify-end w-full items-center">
+
+                {/* 3. Right Actions & Mobile Hamburger */}
+                <div className="flex flex-1 justify-end items-center gap-2">
                     <a 
                       href="https://app.tok-ai.cl" 
                       target="_blank" 
                       rel="noreferrer"
-                      className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-5 py-2 bg-white text-black hover:bg-gray-100 shadow-md border border-gray-200 dark:border-gray-800"
+                      className="hidden md:inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-5 py-2 bg-white text-black hover:bg-gray-100 shadow-md border border-gray-200 dark:border-gray-800 z-10"
                     >
                       Acceder a la plataforma
                     </a>
-                </div>
-                <div className="flex w-12 shrink lg:hidden items-center justify-end">
-                    <Button variant="ghost" onClick={() => setOpen(!isOpen)} className="text-black dark:text-white">
-                        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-                    </Button>
+                    
+                    <div className="lg:hidden flex border border-gray-200 dark:border-gray-800 rounded-md shadow-sm bg-white dark:bg-[#111111]">
+                        <Button variant="ghost" onClick={() => setOpen(!isOpen)} className="text-black dark:text-white h-9 px-3">
+                            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                        </Button>
+                    </div>
+
+                    {/* Mobile Drawer */}
                     {isOpen && (
-                        <div className="absolute top-20 border-t border-gray-200 dark:border-gray-800 flex flex-col w-full left-0 right-0 bg-white dark:bg-[#111111] shadow-lg py-4 px-4 gap-8">
+                        <div className="absolute top-[80px] border-t border-gray-200 dark:border-gray-800 flex flex-col w-full left-0 right-0 bg-white dark:bg-[#111111] shadow-2xl py-2 px-4 gap-2 pb-6 z-50">
                             {navigationItems.map((item) => (
-                                <div key={item.title}>
-                                    <div className="flex flex-col gap-2">
-                                        {item.href ? (
-                                            <a
-                                                href={item.href}
-                                                className="flex justify-between items-center text-black dark:text-white"
-                                            >
-                                                <span className="text-lg">{item.title}</span>
-                                                <MoveRight className="w-4 h-4 stroke-1 text-gray-500" />
-                                            </a>
-                                        ) : (
-                                            <p className="text-lg text-black dark:text-white font-semibold">{item.title}</p>
-                                        )}
-                                        {item.items &&
-                                            item.items.map((subItem) => (
-                                                <a
-                                                    key={subItem.title}
-                                                    href={subItem.href}
-                                                    className="flex justify-between items-center pl-4 py-2 text-gray-600 dark:text-gray-300"
-                                                >
-                                                    <span>
-                                                        {subItem.title}
-                                                    </span>
-                                                    <MoveRight className="w-4 h-4 stroke-1" />
-                                                </a>
-                                            ))}
-                                    </div>
-                                </div>
-                            ))}
-                            <div className="flex flex-col gap-4 mt-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-                                <a 
-                                  href="https://app.tok-ai.cl" 
-                                  className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-white text-black hover:bg-gray-200 shadow-sm"
+                                <a
+                                    key={item.title}
+                                    href={item.href || "#"}
+                                    onClick={(e) => {
+                                        if(!item.href) e.preventDefault();
+                                        else setOpen(false);
+                                    }}
+                                    className="flex justify-between items-center text-black dark:text-white px-2 py-3 rounded-md hover:bg-gray-50 dark:hover:bg-neutral-900"
                                 >
-                                  Acceder a la plataforma
+                                    <span className="text-base font-medium">{item.title}</span>
+                                    {item.href ? <MoveRight className="w-4 h-4 text-gray-400" /> : <MoveRight className="w-4 h-4 text-gray-200 dark:text-gray-800" />}
                                 </a>
-                                <ShinyButton>Empieza Gratis</ShinyButton>
-                            </div>
+                            ))}
+                            
+                            <a 
+                                href="https://app.tok-ai.cl" 
+                                className="mt-4 w-full inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors h-11 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
+                            >
+                                Acceder a la plataforma
+                            </a>
                         </div>
                     )}
                 </div>
