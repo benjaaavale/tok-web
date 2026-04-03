@@ -1,96 +1,138 @@
-import { memo } from "react";
-import { motion } from "framer-motion";
+"use client";
 
-/* ------------------------------------------------------------------ */
-/* Logo data — ready to be replaced with real logos                    */
-/* ------------------------------------------------------------------ */
-interface Logo {
-  name: string;
-  /** URL or local path to a logo image */
-  src: string;
-}
+import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
-/**
- * TODO: Reemplazar con logos reales de clientes.
- * Por ahora se usan los logos existentes del mock.
- */
-const logos: Logo[] = [
-  { name: "Clínica Dental Sonrisa", src: "https://static.prod-images.emergentagent.com/jobs/5de0748f-3bb0-41a9-b522-8d6f839596ca/images/359dbea1aba89fd5e6b1646e870680db3b7831d4d5f7e8219b44d0e03985bb23.png" },
-  { name: "Centro Médico Integral", src: "https://static.prod-images.emergentagent.com/jobs/5de0748f-3bb0-41a9-b522-8d6f839596ca/images/1d218b2cedf720fd00f8488e683990e20343704b243d2800d943e2379b8bfffe.png" },
-  { name: "Visión Clara", src: "https://static.prod-images.emergentagent.com/jobs/5de0748f-3bb0-41a9-b522-8d6f839596ca/images/de6fcdb2d5d035cd15f4daf00114b3894b7118628b16f89cbacb1a1108be6d42.png" },
-  { name: "Blanco Norte", src: "https://static.prod-images.emergentagent.com/jobs/5de0748f-3bb0-41a9-b522-8d6f839596ca/images/289e4eb0d1172434199febb204fdfee2fb1c131377926308ef4eae03a549f227.png" },
-  { name: "Velour Clínica Estética", src: "https://static.prod-images.emergentagent.com/jobs/5de0748f-3bb0-41a9-b522-8d6f839596ca/images/095ccf41edea7469476a80a3aa271ed429d62829a55a5124495c01ff16197d38.png" },
-  { name: "Raíz Salud", src: "https://static.prod-images.emergentagent.com/jobs/5de0748f-3bb0-41a9-b522-8d6f839596ca/images/5c5e5a9adce33baaedaa661f920bc90afcbe9794e0a5d9893c613454982b2d82.png" },
+// List of professional tech logos to use as default placeholders
+export const defaultPartnerLogos = [
+  "https://cdn.worldvectorlogo.com/logos/react-2.svg",
+  "https://cdn.worldvectorlogo.com/logos/next-js.svg",
+  "https://cdn.worldvectorlogo.com/logos/vercel.svg",
+  "https://cdn.worldvectorlogo.com/logos/typescript.svg",
+  "https://cdn.worldvectorlogo.com/logos/tailwindcss.svg",
+  "https://cdn.worldvectorlogo.com/logos/stripe-4.svg",
+  "https://cdn.worldvectorlogo.com/logos/notion-2.svg",
+  "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg",
+  "https://cdn.worldvectorlogo.com/logos/figma-icon-one-color.svg",
+  "https://cdn.worldvectorlogo.com/logos/framer-motion.svg",
+  "https://cdn.worldvectorlogo.com/logos/storybook-1.svg",
+  "https://cdn.worldvectorlogo.com/logos/sanity.svg",
 ];
 
-/* ------------------------------------------------------------------ */
-/* Single logo – lazy loaded                                           */
-/* ------------------------------------------------------------------ */
-const LogoItem = memo(({ logo }: { logo: Logo }) => (
-  <div className="flex-shrink-0 w-36 h-20 mx-5 flex items-center justify-center">
-    <img
-      src={logo.src}
-      alt={logo.name}
-      loading="lazy"
-      decoding="async"
-      className="max-w-full max-h-full object-contain opacity-50 dark:opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-    />
-  </div>
-));
+interface AnimatedCarouselProps {
+  autoPlay?: boolean;
+  autoPlayInterval?: number;
+  logos?: string[] | null;
+  containerClassName?: string;
+  carouselClassName?: string;
+  logoClassName?: string;
+  itemsPerViewMobile?: number;
+  itemsPerViewDesktop?: number;
+  spacing?: string;
+  padding?: string;
+  logoContainerWidth?: string;
+  logoContainerHeight?: string;
+  logoImageWidth?: string;
+  logoImageHeight?: string;
+  logoMaxWidth?: string;
+  logoMaxHeight?: string;
+}
 
-LogoItem.displayName = "LogoItem";
+export const AnimatedCarousel = ({
+  autoPlay = true,
+  autoPlayInterval = 3000,
+  logos = null,
+  containerClassName = "",
+  carouselClassName = "",
+  logoClassName = "",
+  itemsPerViewMobile = 3,
+  itemsPerViewDesktop = 6,
+  spacing = "gap-10",
+  padding = "py-10",
+  logoContainerWidth = "w-24 md:w-48",
+  logoContainerHeight = "h-16 md:h-24",
+  logoImageWidth = "w-full",
+  logoImageHeight = "h-full",
+  logoMaxWidth = "",
+  logoMaxHeight = "max-h-10 md:max-h-14",
+}: AnimatedCarouselProps) => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
 
-/* ------------------------------------------------------------------ */
-/* Main section                                                        */
-/* ------------------------------------------------------------------ */
-export function LogoCarousel() {
-  // Duplicate logos enough for seamless infinite scroll
-  const track = [...logos, ...logos, ...logos, ...logos];
+  useEffect(() => {
+    if (!api || !autoPlay) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      // Loop seamlessly using Embla logic
+      if (api.selectedScrollSnap() + 1 >= api.scrollSnapList().length) {
+        api.scrollTo(0);
+        setCurrent(0);
+      } else {
+        api.scrollNext();
+        setCurrent(current + 1);
+      }
+    }, autoPlayInterval);
+
+    return () => clearTimeout(timer);
+  }, [api, current, autoPlay, autoPlayInterval]);
+
+  const logoItems = logos || defaultPartnerLogos;
+
+  const logoImageSizeClasses = `${logoImageWidth} ${logoImageHeight} ${logoMaxWidth} ${logoMaxHeight}`.trim();
 
   return (
-    <section className="py-10 md:py-14 relative overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <p className="text-center text-sm font-medium uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-8">
-          Empresas que ya confían en ToK
-        </p>
-      </motion.div>
-
-      {/* Carousel container */}
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-[#f5f7fa] dark:from-[#0e0e0e] to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-[#f5f7fa] dark:from-[#0e0e0e] to-transparent pointer-events-none" />
-
-        {/* Infinite ticker – CSS only, no JS, GPU accelerated */}
-        <div
-          className="flex will-change-transform"
-          style={{
-            animation: "logo-scroll 30s linear infinite",
-            width: "max-content",
-          }}
-        >
-          {track.map((logo, i) => (
-            <LogoItem key={`${logo.name}-${i}`} logo={logo} />
-          ))}
+    <div className={cn("w-full bg-transparent overflow-hidden", padding, containerClassName)}>
+      <div className="container mx-auto max-w-7xl px-4">
+        <div className={cn("flex flex-col", spacing)}>
+          <div>
+            <Carousel 
+              setApi={setApi} 
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className={cn("w-full", carouselClassName)}
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {logoItems.map((logo, index) => (
+                  <CarouselItem 
+                    className={cn(
+                      "pl-2 md:pl-4",
+                      `basis-1/${itemsPerViewMobile} lg:basis-1/${itemsPerViewDesktop}`
+                    )} 
+                    key={index}
+                  >
+                    <div className={cn(
+                      "flex rounded-md items-center justify-center p-2 opacity-60 hover:opacity-100 transition-opacity duration-300",
+                      logoContainerWidth, 
+                      logoContainerHeight,
+                      logoClassName
+                    )}>
+                      <img 
+                        src={logo}
+                        alt={`Partner Logo ${index + 1}`}
+                        className={cn(
+                          logoImageSizeClasses,
+                          "object-contain filter grayscale hover:grayscale-0 dark:brightness-0 dark:invert transition-all duration-300"
+                        )}
+                        draggable={false}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
         </div>
       </div>
-
-      {/* CSS keyframes inline – tiny footprint */}
-      <style>{`
-        @keyframes logo-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(calc(-184px * ${logos.length})); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .will-change-transform { animation: none !important; }
-        }
-      `}</style>
-    </section>
+    </div>
   );
-}
+};

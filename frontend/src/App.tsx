@@ -6,12 +6,12 @@ import { PricingSection4 } from '@/components/ui/pricing-section-4';
 import { ShinyButton } from '@/components/ui/shiny-button';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { Header1 } from '@/components/ui/header';
-import { FeaturesSectionWithHoverEffects } from '@/components/ui/feature-section-with-hover-effects';
+import { InteractiveFeatureShowcase } from '@/components/ui/interactive-feature-showcase';
 import { TextRevealByWord } from '@/components/ui/text-reveal';
 import { Typewriter } from '@/components/ui/typewriter';
 import { FooterTaped } from '@/components/ui/footer-taped-design';
 import { AnimatedStats } from '@/components/ui/animated-stats';
-import { LogoCloud } from '@/components/ui/logo-cloud-2';
+import { AnimatedCarousel } from '@/components/ui/logo-carousel';
 import { HowItWorks } from '@/components/ui/how-it-works';
 import { AnimatedFAQ } from '@/components/ui/animated-faq';
 import AnimatedGradientButton from '@/components/ui/animated-gradient-button';
@@ -92,28 +92,33 @@ function App() {
 
         {/* ELEVATED SECTIONS (on top of background paths) */}
 
-        {/* Grid Logo Cloud — transparent panel */}
+        {/* Infinite Logo Carousel */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative z-20 py-12"
+          className="relative z-20 py-6 overflow-hidden"
         >
-          <section className="relative mx-auto grid max-w-5xl px-4">
-            <h2 className="mb-10 text-center font-medium text-lg text-gray-500 dark:text-gray-400 tracking-tight md:text-2xl">
+          <section className="relative w-full">
+            <h2 className="mb-6 text-center font-medium text-lg text-gray-500 dark:text-gray-400 tracking-tight md:text-2xl">
               Empresas que ya{" "}
               <span className="font-semibold text-blue-600 dark:text-blue-500">confían</span> en ToK
             </h2>
 
-            <LogoCloud />
+            <div className="w-full relative max-w-[100vw]">
+              {/* Optional left/right gradient masks to fade the edges of the carousel */}
+              <div className="absolute left-0 top-0 w-16 md:w-32 h-full bg-gradient-to-r from-[#f5f7fa] dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 w-16 md:w-32 h-full bg-gradient-to-l from-[#f5f7fa] dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+              <AnimatedCarousel />
+            </div>
           </section>
         </motion.div>
 
-        {/* Features Section (Transparent over ambient background) */}
-        <section id="features" className="py-24 relative z-10">
+        {/* Interactive Feature Showcase Section */}
+        <section id="features" className="py-24 relative z-10 w-full">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
+            <div className="text-center mb-6">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-black dark:text-white">
                 Todo lo que necesitas para{' '}
                 <Typewriter
@@ -130,12 +135,12 @@ function App() {
                   cursorChar="_"
                 />
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-400">
-                Un set completo de herramientas diseñado para canales B2B.
+              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Un set completo de herramientas de ventas diseñado para llevar tu canal de WhatsApp B2B en piloto automático.
               </p>
             </div>
             
-            <FeaturesSectionWithHoverEffects />
+            <InteractiveFeatureShowcase />
           </div>
         </section>
 
