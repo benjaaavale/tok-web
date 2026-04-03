@@ -58,6 +58,7 @@ export function BackgroundPathsFixed() {
                 }
             `}</style>
             <div
+                className="bg-gradient-to-b from-blue-50/60 via-white to-white dark:from-blue-900/10 dark:via-[#0a0a0a] dark:to-[#0a0a0a]"
                 style={{
                     position: "fixed",
                     top: 0,
@@ -67,7 +68,6 @@ export function BackgroundPathsFixed() {
                     zIndex: 0,
                     pointerEvents: "none",
                     overflow: "hidden",
-                    backgroundColor: "white",
                 }}
                 dangerouslySetInnerHTML={{ __html: svgContent }}
             />

@@ -124,8 +124,8 @@ function Header1() {
 
                 {/* 2. Logo (Absolutely Centered) */}
                 <div className="absolute left-1/2 -translate-x-1/2 flex justify-center items-center">
-                    <img src="/images/logo-black.png" alt="ToK Logo" className="h-[28px] sm:h-8 lg:h-10 w-auto object-contain dark:hidden" />
-                    <img src="/images/logo-white.png" alt="ToK Logo" className="h-[28px] sm:h-8 lg:h-10 w-auto object-contain hidden dark:block" />
+                    <img src="/images/logo-black.png" alt="ToK Logo" className="h-[40px] sm:h-[48px] lg:h-10 w-auto object-contain dark:hidden" />
+                    <img src="/images/logo-white.png" alt="ToK Logo" className="h-[40px] sm:h-[48px] lg:h-10 w-auto object-contain hidden dark:block" />
                 </div>
 
                 {/* 3. Right Actions & Mobile Hamburger */}
