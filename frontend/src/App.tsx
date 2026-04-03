@@ -27,7 +27,7 @@ function App() {
       <main>
         {/* Hero Section */}
         <section className="pt-20 relative z-10">
-          <div className="flex flex-col overflow-hidden">
+          <div className="flex flex-col">
             <ContainerScroll
               titleComponent={
                 <div className="flex flex-col items-center pb-8 md:pb-12">
@@ -80,8 +80,8 @@ function App() {
           className="-mt-16 md:-mt-24 relative z-10"
         >
           <TextRevealByWord 
-            text="Automatiza citas, responde preguntas de tus clientes, integra tu calendario y gestiona campañas de marketing por sí solos."
-            highlightWords={["citas", "preguntas", "clientes", "calendario", "marketing", "por", "sí", "solos"]}
+            text="Automatiza citas, responde preguntas de tus clientes, integra tu calendario y gestiona campañas de marketing en un solo lugar."
+            highlightWords={["citas", "preguntas", "clientes", "calendario", "en", "un", "solo", "lugar"]}
           />
         </motion.section>
 
@@ -98,18 +98,10 @@ function App() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="relative z-20 py-6 overflow-hidden"
+          className="relative z-20 py-2"
         >
           <section className="relative w-full">
-            <h2 className="mb-6 text-center font-medium text-lg text-gray-500 dark:text-gray-400 tracking-tight md:text-2xl">
-              Empresas que ya{" "}
-              <span className="font-semibold text-blue-600 dark:text-blue-500">confían</span> en ToK
-            </h2>
-
             <div className="w-full relative max-w-[100vw]">
-              {/* Optional left/right gradient masks to fade the edges of the carousel */}
-              <div className="absolute left-0 top-0 w-16 md:w-32 h-full bg-gradient-to-r from-[#f5f7fa] dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 w-16 md:w-32 h-full bg-gradient-to-l from-[#f5f7fa] dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
               <AnimatedCarousel />
             </div>
           </section>

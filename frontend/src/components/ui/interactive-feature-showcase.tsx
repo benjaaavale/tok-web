@@ -265,8 +265,6 @@ export function InteractiveFeatureShowcase() {
               </AnimatePresence>
             </div>
 
-            {/* Input mock */}
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black dark:to-transparent pointer-events-none" />
           </div>
         </div>
       </div>
