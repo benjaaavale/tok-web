@@ -92,13 +92,13 @@ function App() {
 
         {/* ELEVATED SECTIONS (on top of background paths) */}
 
-        {/* Grid Logo Cloud — elevated solid panel */}
+        {/* Grid Logo Cloud — transparent panel */}
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="bg-[#f8fafc] dark:bg-[#111111] relative z-20 border-y border-gray-200/50 dark:border-white/5 py-12 shadow-[0_-8px_30px_rgba(0,0,0,0.06),0_8px_30px_rgba(0,0,0,0.06)]"
+          className="relative z-20 py-12"
         >
           <section className="relative mx-auto grid max-w-5xl px-4">
             <h2 className="mb-10 text-center font-medium text-lg text-gray-500 dark:text-gray-400 tracking-tight md:text-2xl">
