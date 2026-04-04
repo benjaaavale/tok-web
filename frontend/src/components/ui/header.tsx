@@ -26,11 +26,11 @@ function Header1() {
             items: [
                 {
                     title: "Características",
-                    href: "#features",
+                    href: "/#features",
                 },
                 {
                     title: "Precios",
-                    href: "#pricing",
+                    href: "/#pricing",
                 },
                 {
                     title: "Casos de Uso",
@@ -60,7 +60,7 @@ function Header1() {
                 },
                 {
                     title: "Contacto",
-                    href: "#contact",
+                    href: "/#contact",
                 },
             ],
         },
@@ -69,7 +69,7 @@ function Header1() {
     const [isOpen, setOpen] = useState(false);
     return (
         <header className="w-full z-[100] fixed top-0 left-0 bg-[#f8fafc] dark:bg-[#0e0e0e] shadow-sm border-b border-gray-200/50 dark:border-white/5">
-            <div className="max-w-7xl relative mx-auto min-h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl relative mx-auto min-h-16 md:min-h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
                 {/* 1. Desktop Nav */}
                 <div className="hidden lg:flex flex-1 justify-start">
                     <NavigationMenu className="flex justify-start items-start">
@@ -124,8 +124,8 @@ function Header1() {
 
                 {/* 2. Logo (Absolutely Centered) */}
                 <div className="absolute left-1/2 -translate-x-1/2 flex justify-center items-center">
-                    <img src="/images/logo-black.png" alt="ToK Logo" className="h-[56px] sm:h-[64px] lg:h-14 w-auto object-contain dark:hidden" />
-                    <img src="/images/logo-white.png" alt="ToK Logo" className="h-[56px] sm:h-[64px] lg:h-14 w-auto object-contain hidden dark:block" />
+                    <img src="/images/logo-black.png" alt="ToK Logo" className="h-[40px] md:h-[56px] lg:h-14 w-auto object-contain dark:hidden" />
+                    <img src="/images/logo-white.png" alt="ToK Logo" className="h-[40px] md:h-[56px] lg:h-14 w-auto object-contain hidden dark:block" />
                 </div>
 
                 {/* 3. Right Actions & Mobile Hamburger */}

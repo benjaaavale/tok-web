@@ -37,8 +37,8 @@ export const FooterTaped = () => {
             <div className="flex flex-col gap-1 md:gap-4">
               <h4 className="uppercase text-xs text-gray-400 font-semibold tracking-wider">Producto</h4>
               <div className="flex flex-wrap md:flex-col gap-2 text-sm items-start">
-                <a className="text-gray-500 hover:text-gray-900 whitespace-nowrap font-medium transition-colors" href="#features">Características</a>
-                <a className="text-gray-500 hover:text-gray-900 whitespace-nowrap font-medium transition-colors" href="#pricing">Precios</a>
+                <a className="text-gray-500 hover:text-gray-900 whitespace-nowrap font-medium transition-colors" href="/#features">Características</a>
+                <a className="text-gray-500 hover:text-gray-900 whitespace-nowrap font-medium transition-colors" href="/#pricing">Precios</a>
                 <a className="text-gray-500 hover:text-gray-900 whitespace-nowrap font-medium transition-colors" href="https://app.tok-ai.cl" target="_blank" rel="noreferrer">Plataforma</a>
               </div>
             </div>
@@ -76,9 +76,10 @@ export const FooterTaped = () => {
           <p className="whitespace-nowrap">
             ©{currentYear} ToK. Todos los derechos reservados.
           </p>
-          <div className="flex flex-row gap-4">
-            <a href="#" className="hover:text-gray-900 transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-gray-900 transition-colors">Términos</a>
+          <div className="flex flex-row gap-4 flex-wrap">
+            <a href="/privacy-policy" className="hover:text-gray-900 transition-colors">Privacidad</a>
+            <a href="/terms-of-use" className="hover:text-gray-900 transition-colors">Términos</a>
+            <a href="/data-treatment" className="hover:text-gray-900 transition-colors">Tratamiento de Datos</a>
           </div>
         </div>
 
