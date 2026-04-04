@@ -18,7 +18,7 @@ export function BackgroundPathsFixed() {
         // Generate paths for position 1 (curves from upper-left)
         for (let i = 0; i < 25; i++) {
             const pos = 1;
-            const d = `M-${380 - i * 7 * pos} -${189 + i * 8}C-${380 - i * 7 * pos} -${189 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
+            const d = `M-${680 - i * 7 * pos} -${289 + i * 8}C-${680 - i * 7 * pos} -${289 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
             const w = 0.5 + i * 0.04;
             const o = 0.1 + i * 0.04;
             const dur = 8 + (i * 3) % 7; // faster, more dynamic
@@ -29,7 +29,7 @@ export function BackgroundPathsFixed() {
         // Generate paths for position -1 (curves from upper-right, mirrored)
         for (let i = 0; i < 25; i++) {
             const pos = -1;
-            const d = `M-${380 - i * 7 * pos} -${189 + i * 8}C-${380 - i * 7 * pos} -${189 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
+            const d = `M-${680 - i * 7 * pos} -${289 + i * 8}C-${680 - i * 7 * pos} -${289 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
             const w = 0.5 + i * 0.04;
             const o = 0.1 + i * 0.04;
             const dur = 8 + (i * 3) % 7;

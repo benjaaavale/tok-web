@@ -39,8 +39,8 @@ function App() {
                       Con IA
                     </span>
                   </h1>
-                  <div className="flex flex-row gap-2 sm:gap-6 w-full sm:w-auto items-start justify-center px-2">
-                    <div className="flex flex-col items-center flex-1 sm:flex-auto">
+                  <div className="flex flex-row gap-2 sm:gap-6 w-full sm:w-auto items-start justify-center px-4">
+                    <div className="flex flex-col items-center">
                       <AnimatedGradientButton 
                         text="Pruébalo gratis" 
                       />
@@ -48,7 +48,7 @@ function App() {
                         <IconBolt size={12} className="text-amber-500 sm:w-4 sm:h-4" /> por 5 días
                       </span>
                     </div>
-                    <div className="flex flex-col items-center flex-1 sm:flex-auto">
+                    <div className="flex flex-col items-center">
                       <AnimatedGradientButton 
                         text="Agenda con ventas" 
                         icon={<IconCalendarEvent size={24} />} 
