@@ -37,7 +37,7 @@ export function BackgroundPathsFixed() {
             pathsHtml.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
         }
         
-        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-400 -300 1400 3000" fill="none" style="position:absolute;top:0;left:0;width:100%;height:100%;mask-image:linear-gradient(to bottom, black 50%, transparent 100%);-webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%)"><title>Background Paths</title>${pathsHtml.join("")}</svg>`;
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-400 -300 1400 3000" fill="none" style="position:absolute;top:0;left:0;width:100%;height:100%;mask-image:linear-gradient(to bottom, black 50%, transparent 100%);-webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%);will-change:transform;transform:translateZ(0);backface-visibility:hidden;"><title>Background Paths</title>${pathsHtml.join("")}</svg>`;
     }, []);
 
     return (
@@ -47,6 +47,9 @@ export function BackgroundPathsFixed() {
                     animation-name: bgPathInfinite;
                     animation-timing-function: linear;
                     animation-iteration-count: infinite;
+                    will-change: stroke-dashoffset;
+                    transform: translateZ(0);
+                    backface-visibility: hidden;
                 }
                 @keyframes bgPathInfinite {
                     0% {
@@ -68,6 +71,9 @@ export function BackgroundPathsFixed() {
                     zIndex: 0,
                     pointerEvents: "none",
                     overflow: "hidden",
+                    contain: "strict",
+                    willChange: "transform",
+                    transform: "translateZ(0)",
                 }}
                 dangerouslySetInnerHTML={{ __html: svgContent }}
             />
