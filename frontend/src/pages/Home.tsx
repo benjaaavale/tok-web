@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconBrandWhatsapp, IconCalendarEvent, IconBolt } from '@tabler/icons-react';
+import { IconBrandWhatsapp, IconBolt } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import { PricingSection4 } from '@/components/ui/pricing-section-4';
@@ -40,23 +40,24 @@ function Home() {
                     </span>
                   </h1>
                   <div className="flex flex-row gap-3 sm:gap-6 w-full justify-center items-start px-2">
-                    <div className="flex flex-col items-center w-[165px] sm:w-[210px] md:w-[240px]">
-                      <AnimatedGradientButton 
-                        text="Pruébalo gratis" 
+                    <div className="flex flex-col items-center w-[170px] sm:w-[220px] md:w-[270px] lg:w-[310px]">
+                      <AnimatedGradientButton
+                        text="Empieza GRATIS"
                         showArrow={false}
                         containerClassName="w-full"
-                        className="w-full justify-center text-center px-2"
+                        className="w-full justify-center text-center whitespace-nowrap px-2 sm:px-4"
                       />
                       <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 flex items-center justify-center gap-1 text-center leading-tight">
                         <IconBolt size={12} className="text-amber-500 sm:w-4 sm:h-4" /> por 5 días
                       </span>
                     </div>
-                    <div className="flex flex-col items-center w-[165px] sm:w-[210px] md:w-[240px]">
-                      <AnimatedGradientButton 
-                        text="Agenda con ventas" 
-                        icon={<IconCalendarEvent size={24} className="hidden lg:block shrink-0" />} 
+                    <div className="flex flex-col items-center w-[170px] sm:w-[220px] md:w-[270px] lg:w-[310px]">
+                      <AnimatedGradientButton
+                        text="Hablar con ventas"
+                        icon={<IconBrandWhatsapp className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0 text-green-500" />}
+                        showArrow={false}
                         containerClassName="w-full"
-                        className="w-full justify-center text-center px-2 sm:px-4"
+                        className="w-full justify-center text-center whitespace-nowrap px-2 sm:px-4"
                       />
                       <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 text-center leading-tight">
                         e impulsa tu negocio
@@ -85,7 +86,7 @@ function Home() {
           className="-mt-16 md:-mt-24 relative z-10"
         >
           <TextRevealByWord 
-            text="Automatiza citas, responde preguntas de tus clientes, integra tu calendario y gestiona campañas de marketing en un solo lugar."
+            text="Automatiza citas, responde preguntas de tus clientes, integra tu calendario y gestiona campañas outbound en un solo lugar."
             highlightWords={["citas", "preguntas", "clientes", "calendario", "en", "un", "solo", "lugar"]}
           />
         </motion.section>
