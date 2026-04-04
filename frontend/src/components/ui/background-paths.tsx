@@ -7,26 +7,22 @@ import React, { useMemo } from "react";
  */
 export function BackgroundPathsFixed() {
     const svgContent = useMemo(() => {
-        const pathsHtml: string[] = [];
+        const pathsHtmlMobile: string[] = [];
+        const pathsHtmlDesktop: string[] = [];
         const pathLength = 2200; // approximate path length
-        const segmentLength = 700; // visible segment length (shorter = more "trail" feel)
-        const gapLength = pathLength; // gap between visible segments
-        // dasharray = segment + gap. When we animate dashoffset over (segment + gap),
-        // the visible segment travels the full path and seamlessly loops.
-        const totalDash = segmentLength + gapLength;
+        const segmentLength = 700; // visible segment length
+        const gapLength = pathLength;
         
-        // Generate paths for position 1 (curves from upper-left)
+        // Generate Mobile Paths (-680, -289 origin, 2800 drop)
         for (let i = 0; i < 25; i++) {
             const pos = 1;
             const d = `M-${680 - i * 7 * pos} -${289 + i * 8}C-${680 - i * 7 * pos} -${289 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8}`;
             const w = 0.5 + i * 0.04;
             const o = 0.1 + i * 0.04;
-            const dur = 8 + (i * 3) % 7; // faster, more dynamic
+            const dur = 8 + (i * 3) % 7;
             const delay = -(i * 1.2);
-            pathsHtml.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
+            pathsHtmlMobile.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
         }
-        
-        // Generate paths for position -1 (curves from upper-right, mirrored)
         for (let i = 0; i < 25; i++) {
             const pos = -1;
             const d = `M-${680 - i * 7 * pos} -${289 + i * 8}C-${680 - i * 7 * pos} -${289 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8}`;
@@ -34,10 +30,33 @@ export function BackgroundPathsFixed() {
             const o = 0.1 + i * 0.04;
             const dur = 8 + (i * 3) % 7;
             const delay = -(i * 1.2);
-            pathsHtml.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
+            pathsHtmlMobile.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
+        }
+
+        // Generate Desktop Paths (-380, -189 origin, 1400 drop - Original constraints)
+        for (let i = 0; i < 25; i++) {
+            const pos = 1;
+            const d = `M-${380 - i * 7 * pos} -${189 + i * 8}C-${380 - i * 7 * pos} -${189 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
+            const w = 0.5 + i * 0.04;
+            const o = 0.1 + i * 0.04;
+            const dur = 8 + (i * 3) % 7;
+            const delay = -(i * 1.2);
+            pathsHtmlDesktop.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
+        }
+        for (let i = 0; i < 25; i++) {
+            const pos = -1;
+            const d = `M-${380 - i * 7 * pos} -${189 + i * 8}C-${380 - i * 7 * pos} -${189 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
+            const w = 0.5 + i * 0.04;
+            const o = 0.1 + i * 0.04;
+            const dur = 8 + (i * 3) % 7;
+            const delay = -(i * 1.2);
+            pathsHtmlDesktop.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
         }
         
-        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-400 -300 1400 3000" fill="none" style="position:absolute;top:0;left:0;width:100%;height:100%;mask-image:linear-gradient(to bottom, black 50%, transparent 100%);-webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%);will-change:transform;transform:translateZ(0);backface-visibility:hidden;"><title>Background Paths</title>${pathsHtml.join("")}</svg>`;
+        const svgMobile = `<svg class="block sm:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="-400 -300 1400 3000" fill="none" style="position:absolute;top:0;left:0;width:100%;height:100%;mask-image:linear-gradient(to bottom, black 50%, transparent 100%);-webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%);will-change:transform;transform:translateZ(0);backface-visibility:hidden;"><title>Background Paths Mobile</title>${pathsHtmlMobile.join("")}</svg>`;
+        const svgDesktop = `<svg class="hidden sm:block" xmlns="http://www.w3.org/2000/svg" viewBox="-400 -300 1400 1400" fill="none" style="position:absolute;top:0;left:0;width:100%;height:100%;mask-image:linear-gradient(to bottom, black 50%, transparent 100%);-webkit-mask-image:linear-gradient(to bottom, black 50%, transparent 100%);will-change:transform;transform:translateZ(0);backface-visibility:hidden;"><title>Background Paths Desktop</title>${pathsHtmlDesktop.join("")}</svg>`;
+
+        return svgMobile + svgDesktop;
     }, []);
 
     return (
