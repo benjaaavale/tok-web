@@ -7,10 +7,12 @@ export default function AnimatedGradientButton({
   text = "Explore Patterns",
   onClick,
   icon,
+  showArrow = true,
 }: {
   text?: string;
   onClick?: () => void;
   icon?: React.ReactNode;
+  showArrow?: boolean;
 }) {
   return (
     <motion.div
@@ -44,13 +46,15 @@ export default function AnimatedGradientButton({
                 whileHover={{ width: "100%" }}
               />
             </span>
-            <motion.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="text-xl"
-            >
-              →
-            </motion.span>
+            {showArrow !== false && (
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="text-xl"
+              >
+                →
+              </motion.span>
+            )}
           </motion.span>
         </Button>
       </div>

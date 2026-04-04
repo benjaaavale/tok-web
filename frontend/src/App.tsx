@@ -43,6 +43,7 @@ function App() {
                     <div className="flex flex-col items-center">
                       <AnimatedGradientButton 
                         text="Pruébalo gratis" 
+                        showArrow={false}
                       />
                       <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 flex items-center justify-center gap-1 text-center leading-tight">
                         <IconBolt size={12} className="text-amber-500 sm:w-4 sm:h-4" /> por 5 días
