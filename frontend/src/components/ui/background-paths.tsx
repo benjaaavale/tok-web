@@ -9,14 +9,15 @@ export function BackgroundPathsFixed() {
     const svgContent = useMemo(() => {
         const pathsHtmlMobile: string[] = [];
         const pathsHtmlDesktop: string[] = [];
-        const pathLength = 2200; // approximate path length
-        const segmentLength = 700; // visible segment length
-        const gapLength = pathLength;
+        const pathLength = 5000; // increased path length to cover entire viewport depth
+        const segmentLength = 1000; // longer flowing segment
+        const gapLength = 5000;
         
-        // Generate Mobile Paths (-680, -289 origin, 2800 drop)
+        // Generate Mobile Paths
         for (let i = 0; i < 25; i++) {
             const pos = 1;
-            const d = `M-${680 - i * 7 * pos} -${289 + i * 8}C-${680 - i * 7 * pos} -${289 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8}`;
+            // Single, perfectly smooth S-curve
+            const d = `M-${650 - i * 10 * pos} -${300 + i * 8} C-${200 - i * 12 * pos} 600, ${400 - i * 12 * pos} 1400, ${700 - i * 10 * pos} ${3000}`;
             const w = 0.5 + i * 0.04;
             const o = 0.1 + i * 0.04;
             const dur = 8 + (i * 3) % 7;
@@ -25,7 +26,7 @@ export function BackgroundPathsFixed() {
         }
         for (let i = 0; i < 25; i++) {
             const pos = -1;
-            const d = `M-${680 - i * 7 * pos} -${289 + i * 8}C-${680 - i * 7 * pos} -${289 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8} ${734 - i * 7 * pos} ${2800 - i * 8}`;
+            const d = `M-${650 - i * 10 * pos} -${300 + i * 8} C-${200 - i * 12 * pos} 600, ${400 - i * 12 * pos} 1400, ${700 - i * 10 * pos} ${3000}`;
             const w = 0.5 + i * 0.04;
             const o = 0.1 + i * 0.04;
             const dur = 8 + (i * 3) % 7;
@@ -33,10 +34,11 @@ export function BackgroundPathsFixed() {
             pathsHtmlMobile.push(`<path d="${d}" stroke="black" stroke-width="${w}" stroke-opacity="${o}" fill="none" class="bg-path-flow" style="animation-duration:${dur}s;animation-delay:${delay}s;stroke-dasharray:${segmentLength} ${gapLength}"/>`);
         }
 
-        // Generate Desktop Paths (-380, -189 origin, 1400 drop - Original constraints)
+        // Generate Desktop Paths
         for (let i = 0; i < 25; i++) {
             const pos = 1;
-            const d = `M-${380 - i * 7 * pos} -${189 + i * 8}C-${380 - i * 7 * pos} -${189 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
+            // Single, perfectly smooth S-curve
+            const d = `M-${380 - i * 12 * pos} -${189 + i * 8} C-${100 - i * 12 * pos} 400, ${300 - i * 12 * pos} 900, ${600 - i * 12 * pos} ${1800}`;
             const w = 0.5 + i * 0.04;
             const o = 0.1 + i * 0.04;
             const dur = 8 + (i * 3) % 7;
@@ -45,7 +47,7 @@ export function BackgroundPathsFixed() {
         }
         for (let i = 0; i < 25; i++) {
             const pos = -1;
-            const d = `M-${380 - i * 7 * pos} -${189 + i * 8}C-${380 - i * 7 * pos} -${189 + i * 8} -${312 - i * 7 * pos} ${216 - i * 8} ${152 - i * 7 * pos} ${343 - i * 8}C${616 - i * 7 * pos} ${470 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8} ${734 - i * 7 * pos} ${1400 - i * 8}`;
+            const d = `M-${380 - i * 12 * pos} -${189 + i * 8} C-${100 - i * 12 * pos} 400, ${300 - i * 12 * pos} 900, ${600 - i * 12 * pos} ${1800}`;
             const w = 0.5 + i * 0.04;
             const o = 0.1 + i * 0.04;
             const dur = 8 + (i * 3) % 7;
@@ -72,7 +74,7 @@ export function BackgroundPathsFixed() {
                 }
                 @keyframes bgPathInfinite {
                     0% {
-                        stroke-dashoffset: 4900;
+                        stroke-dashoffset: 6000;
                     }
                     100% {
                         stroke-dashoffset: 0;

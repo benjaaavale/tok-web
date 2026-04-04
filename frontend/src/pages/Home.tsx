@@ -39,24 +39,24 @@ function Home() {
                       Con IA
                     </span>
                   </h1>
-                  <div className="flex flex-row gap-2 sm:gap-6 w-full max-w-[400px] sm:max-w-none mx-auto items-start justify-center px-2 sm:px-4">
-                    <div className="flex flex-col items-center flex-1">
+                  <div className="flex flex-row gap-3 sm:gap-6 w-full justify-center items-start px-2">
+                    <div className="flex flex-col items-center w-[165px] sm:w-[210px] md:w-[240px]">
                       <AnimatedGradientButton 
                         text="Pruébalo gratis" 
                         showArrow={false}
-                        containerClassName="w-full sm:w-[210px] md:w-[240px]"
-                        className="w-full justify-center text-center"
+                        containerClassName="w-full"
+                        className="w-full justify-center text-center px-2"
                       />
                       <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 flex items-center justify-center gap-1 text-center leading-tight">
                         <IconBolt size={12} className="text-amber-500 sm:w-4 sm:h-4" /> por 5 días
                       </span>
                     </div>
-                    <div className="flex flex-col items-center flex-1">
+                    <div className="flex flex-col items-center w-[165px] sm:w-[210px] md:w-[240px]">
                       <AnimatedGradientButton 
                         text="Agenda con ventas" 
                         icon={<IconCalendarEvent size={24} className="hidden lg:block shrink-0" />} 
-                        containerClassName="w-full sm:w-[210px] md:w-[240px]"
-                        className="w-full justify-center text-center px-1 sm:px-4 flex-wrap"
+                        containerClassName="w-full"
+                        className="w-full justify-center text-center px-2 sm:px-4"
                       />
                       <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 text-center leading-tight">
                         e impulsa tu negocio
