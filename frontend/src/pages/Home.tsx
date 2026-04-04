@@ -52,13 +52,15 @@ function Home() {
                       </span>
                     </div>
                     <div className="flex flex-col items-center w-[148px] sm:w-[195px] md:w-[235px] lg:w-[270px]">
-                      <AnimatedGradientButton
-                        text="Hablar con ventas"
-                        icon={<IconBrandWhatsapp className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0 text-green-500" />}
-                        showArrow={false}
-                        containerClassName="w-full"
-                        className="w-full justify-center text-center whitespace-nowrap px-2 sm:px-4"
-                      />
+                      <a href="https://api.whatsapp.com/send?phone=56991224190&text=Hola%21+Quiero+más+información." target="_blank" rel="noopener noreferrer" className="w-full">
+                        <AnimatedGradientButton
+                          text="Hablar con ventas"
+                          icon={<IconBrandWhatsapp className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0 text-green-500" />}
+                          showArrow={false}
+                          containerClassName="w-full"
+                          className="w-full justify-center text-center whitespace-nowrap px-2 sm:px-4"
+                        />
+                      </a>
                       <span className="text-[10px] sm:text-sm font-medium text-gray-500 mt-2 sm:mt-3 text-center leading-tight">
                         e impulsa tu negocio
                       </span>
