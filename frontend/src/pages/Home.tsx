@@ -40,7 +40,7 @@ function Home() {
                     </span>
                   </h1>
                   <div className="flex flex-row gap-3 sm:gap-6 w-full justify-center items-start px-2">
-                    <div className="flex flex-col items-center w-[170px] sm:w-[220px] md:w-[270px] lg:w-[310px]">
+                    <div className="flex flex-col items-center w-[148px] sm:w-[195px] md:w-[235px] lg:w-[270px]">
                       <AnimatedGradientButton
                         text="Empieza GRATIS"
                         showArrow={false}
@@ -51,7 +51,7 @@ function Home() {
                         <IconBolt size={12} className="text-amber-500 sm:w-4 sm:h-4" /> por 5 días
                       </span>
                     </div>
-                    <div className="flex flex-col items-center w-[170px] sm:w-[220px] md:w-[270px] lg:w-[310px]">
+                    <div className="flex flex-col items-center w-[148px] sm:w-[195px] md:w-[235px] lg:w-[270px]">
                       <AnimatedGradientButton
                         text="Hablar con ventas"
                         icon={<IconBrandWhatsapp className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0 text-green-500" />}
