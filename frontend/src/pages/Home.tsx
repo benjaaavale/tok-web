@@ -74,8 +74,17 @@ function Home() {
           </div>
         </section>
 
+        {/* Infinite Logo Carousel — between hero and text reveal */}
+        <div className="relative z-20 -mt-8 md:-mt-16 pb-6">
+          <section className="relative w-full">
+            <div className="w-full relative max-w-[100vw]">
+              <AnimatedCarousel />
+            </div>
+          </section>
+        </div>
+
         {/* Text Reveal Description */}
-        <motion.section 
+        <motion.section
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -94,21 +103,6 @@ function Home() {
         </div>
 
         {/* ELEVATED SECTIONS (on top of background paths) */}
-
-        {/* Infinite Logo Carousel */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="relative z-20 -mt-20 md:-mt-32 pb-16"
-        >
-          <section className="relative w-full">
-            <div className="w-full relative max-w-[100vw]">
-              <AnimatedCarousel />
-            </div>
-          </section>
-        </motion.div>
 
         {/* Interactive Feature Showcase Section */}
         <motion.section 
