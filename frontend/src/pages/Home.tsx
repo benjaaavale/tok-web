@@ -89,7 +89,7 @@ function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="-mt-16 md:-mt-24 relative z-10"
+          className="mt-14 md:-mt-24 relative z-10"
         >
           <TextRevealByWord 
             text="Automatiza citas, responde preguntas de tus clientes, integra tu calendario y gestiona campañas outbound en un solo lugar."

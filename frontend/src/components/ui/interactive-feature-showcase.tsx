@@ -47,12 +47,12 @@ const features: Feature[] = [
   {
     id: "recupera",
     title: "Recupera ingresos por abandono",
-    description: "Contacta proactivamente a los prospectos que dejaron de responder o abandonaron el carrito, ofreciendo asistencia o incentivos para cerrar la venta.",
+    description: "Contacta proactivamente a los prospectos que dejaron de responder, ofreciendo asistencia o incentivos para retomar la conversación y cerrar la venta.",
     icon: RotateCcw,
     chat: [
-      { id: "1", role: "agent", text: "¡Hola María! Noté que dejaste unas cosas en tu carrito. ¿Tuviste algún problema con el pago? 🛒", time: "10:15", agentSignature: true },
-      { id: "2", role: "user", text: "Sí, me dio error la tarjeta y me olvidé de volver a intentar", time: "10:42" },
-      { id: "3", role: "agent", text: "No te preocupes. Te he generado un nuevo link seguro de pago, y te he sumado un 10% de descuento por las molestias. ¡Aquí lo tienes!", time: "10:43" },
+      { id: "1", role: "agent", text: "¡Hola María! Te escribo porque vi que quedamos con una pregunta pendiente 😊 ¿Pudiste revisar la información que te envié?", time: "10:15", agentSignature: true },
+      { id: "2", role: "user", text: "Ay sí, me olvidé de responder. Estaba evaluándolo con mi pareja", time: "10:44" },
+      { id: "3", role: "agent", text: "¡Sin problema! Para ayudarte a decidir, te puedo agendar una llamada rápida de 10 min con nuestro equipo. ¿Te acomoda esta semana? 📅", time: "10:44", agentSignature: true },
     ]
   },
   {
