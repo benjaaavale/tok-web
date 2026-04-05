@@ -69,12 +69,7 @@ function Home() {
                 </div>
               }
             >
-              <img
-                src="/images/app-screenshot.png"
-                alt="ToK Dashboard Interface"
-                className="mx-auto rounded-2xl object-cover h-full object-left-top shadow-[0_15px_30px_rgba(0,0,0,0.4)] border border-gray-200/50 dark:border-white/10"
-                draggable={false}
-              />
+              <div className="h-full w-full bg-[#111]" />
             </ContainerScroll>
           </div>
         </section>
