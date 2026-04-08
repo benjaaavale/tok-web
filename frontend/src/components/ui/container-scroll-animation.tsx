@@ -37,11 +37,11 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className="h-[40rem] md:h-[80rem] flex items-start md:items-center justify-center relative p-2 md:p-20"
+      className="h-[40rem] md:h-[60rem] flex items-start md:items-center justify-center relative p-2 md:p-10"
       ref={containerRef}
     >
       <div
-        className="py-2 md:py-40 w-full relative"
+        className="py-2 md:py-16 w-full relative"
         style={{
           perspective: "1000px",
         }}
@@ -86,9 +86,9 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="mx-auto -mt-12 h-auto w-[185px] sm:w-[280px] aspect-[9/19.5] md:w-full md:aspect-[16/10] max-w-5xl border-[10px] md:border-[20px] border-[#222222] p-1 md:p-2 bg-[#111111] rounded-[30px] shadow-[0_10px_50px_rgba(0,0,0,0.5)] ring-2 md:ring-4 ring-[#4b4b4b]"
+      className="mx-auto -mt-12 h-auto w-[185px] sm:w-[280px] aspect-[9/19.5] md:w-full md:aspect-[16/10] max-w-3xl border-[10px] md:border-[16px] border-[#222222] bg-[#111111] rounded-[24px] shadow-[0_10px_50px_rgba(0,0,0,0.5)] ring-2 md:ring-4 ring-[#4b4b4b]"
     >
-      <div className="h-full w-full overflow-hidden rounded-[14px] md:rounded-[20px] bg-[#111] md:p-4">
+      <div className="h-full w-full overflow-hidden rounded-[10px] md:rounded-[14px] bg-[#111]">
         {children}
       </div>
     </motion.div>
