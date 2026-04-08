@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
           <section>
             <h2 className="text-xl font-semibold text-black dark:text-white mt-8 mb-4">1. Quiénes somos</h2>
             <p>
-              ToK es una plataforma de automatización de ventas y atención al cliente vía WhatsApp, operada por ToK SpA, con domicilio en Chile. Puedes contactarnos en <a href="mailto:contacto@tok-ai.cl" className="text-blue-600 hover:text-blue-700">contacto@tok-ai.cl</a>.
+              ToK es una plataforma de automatización de ventas y atención al cliente vía WhatsApp, operada por <strong>BVIA SpA</strong>, RUT 78.390.338-5, con domicilio en Carmen Covarrubias 32, Of. 313, Ñuñoa, Chile. Puedes contactarnos en <a href="mailto:contacto@tok-ai.cl" className="text-blue-600 hover:text-blue-700">contacto@tok-ai.cl</a>.
             </p>
           </section>
 

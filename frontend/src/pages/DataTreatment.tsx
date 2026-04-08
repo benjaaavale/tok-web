@@ -5,7 +5,7 @@ const DataTreatment = () => {
     <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#0e0e0e]">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight prose dark:prose-invert">Registro de Actividades de Tratamiento de Datos</h1>
-        <p className="text-gray-500 mb-2">Responsable: BVIA SpA | <a href="mailto:soporte@tok-ai.cl" className="text-blue-600 hover:text-blue-700">soporte@tok-ai.cl</a></p>
+        <p className="text-gray-500 mb-2">Responsable: <strong className="text-gray-700 dark:text-gray-200">BVIA SpA</strong> · RUT 78.390.338-5 · Carmen Covarrubias 32, Of. 313, Ñuñoa, Chile · <a href="mailto:soporte@tok-ai.cl" className="text-blue-600 hover:text-blue-700">soporte@tok-ai.cl</a></p>
         <p className="text-gray-500 mb-10 text-sm">Última actualización: abril de 2026</p>
 
         <div className="mt-8 overflow-x-auto shadow ring-1 ring-black ring-opacity-5 rounded-lg border border-gray-200 dark:border-gray-800">

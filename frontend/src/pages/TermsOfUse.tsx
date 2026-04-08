@@ -11,7 +11,7 @@ const TermsOfUse = () => {
           <section>
             <h2 className="text-xl font-semibold text-black dark:text-white mt-8 mb-4">1. Aceptación de los términos</h2>
             <p>
-              Al crear una cuenta y utilizar ToK, aceptas estos Términos de Uso en su totalidad. Estos términos constituyen un contrato legal entre tú (o la empresa que representas) y BVIA SpA.
+              Al crear una cuenta y utilizar ToK, aceptas estos Términos de Uso en su totalidad. Estos términos constituyen un contrato legal entre tú (o la empresa que representas) y <strong>BVIA SpA</strong>, RUT 78.390.338-5, con domicilio en Carmen Covarrubias 32, Of. 313, Ñuñoa, Chile.
             </p>
           </section>
 
@@ -103,7 +103,7 @@ const TermsOfUse = () => {
           <section>
             <h2 className="text-xl font-semibold text-black dark:text-white mt-8 mb-4">12. Contacto</h2>
             <p>
-              Para consultas, escríbenos a <a href="mailto:soporte@tok-ai.cl" className="text-blue-600 hover:text-blue-700">soporte@tok-ai.cl</a>.
+              Para consultas, escríbenos a <a href="mailto:soporte@tok-ai.cl" className="text-blue-600 hover:text-blue-700">soporte@tok-ai.cl</a>. También puedes escribirnos a nuestra dirección comercial: BVIA SpA, Carmen Covarrubias 32, Of. 313, Ñuñoa, Chile.
             </p>
           </section>
         </div>
