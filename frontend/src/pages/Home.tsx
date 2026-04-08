@@ -73,7 +73,8 @@ function Home() {
                 <img
                   src="/images/app-screenshot.png"
                   alt="ToK Dashboard Interface"
-                  className="hidden md:block w-full h-full object-cover object-top"
+                  className="hidden md:block w-full h-full object-cover"
+                  style={{ objectPosition: '50% -8%' }}
                   draggable={false}
                 />
               </div>
