@@ -71,7 +71,7 @@ function Home() {
             >
               <div className="h-full w-full bg-[#111]">
                 <img
-                  src="/images/app-screenshot.png"
+                  src={`/images/app-screenshot.png?v=1775508407`}
                   alt="ToK Dashboard Interface"
                   className="hidden md:block w-full h-full object-cover"
                   style={{ objectPosition: '50% -8%' }}
