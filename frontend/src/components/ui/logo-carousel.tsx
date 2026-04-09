@@ -13,16 +13,16 @@ import { cn } from "@/lib/utils";
 export const defaultPartnerLogos = [
   "https://cdn.worldvectorlogo.com/logos/react-2.svg",
   "https://cdn.worldvectorlogo.com/logos/next-js.svg",
-  "https://cdn.worldvectorlogo.com/logos/vercel.svg",
   "https://cdn.worldvectorlogo.com/logos/typescript.svg",
   "https://cdn.worldvectorlogo.com/logos/tailwindcss.svg",
-  "/images/mumu-audio-car.png",
-  "https://cdn.worldvectorlogo.com/logos/notion-2.svg",
   "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg",
+  "/images/mumu-audio-car.png",
   "/images/upgrade-smart.png",
-  "https://cdn.worldvectorlogo.com/logos/framer-motion.svg",
-  "https://cdn.worldvectorlogo.com/logos/storybook-1.svg",
-  "https://cdn.worldvectorlogo.com/logos/sanity.svg",
+  "/images/cloudflare.svg",
+  "/images/anthropic.svg",
+  "/images/openai.svg",
+  "/images/google-calendar.svg",
+  "/images/ycloud.png",
 ];
 
 interface AnimatedCarouselProps {
