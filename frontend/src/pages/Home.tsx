@@ -69,14 +69,15 @@ function Home() {
                 </div>
               }
             >
-              <div className="h-full w-full bg-[#111]">
-                <img
-                  src={`/images/app-screenshot.png?v=1775508407`}
-                  alt="ToK Dashboard Interface"
-                  className="hidden md:block w-full h-full object-cover object-top"
-                  draggable={false}
-                />
-              </div>
+              <div
+                className="hidden md:block h-full w-full"
+                style={{
+                  backgroundImage: `url(/images/app-screenshot.png?v=1775508407)`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'top center',
+                }}
+              />
+              <div className="md:hidden h-full w-full bg-[#111]" />
             </ContainerScroll>
           </div>
         </section>
