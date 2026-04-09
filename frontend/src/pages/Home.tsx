@@ -73,8 +73,9 @@ function Home() {
                 className="hidden md:block h-full w-full"
                 style={{
                   backgroundImage: `url(/images/app-screenshot.png?v=1775508407)`,
-                  backgroundSize: 'cover',
+                  backgroundSize: 'contain',
                   backgroundPosition: 'top center',
+                  backgroundRepeat: 'no-repeat',
                 }}
               />
               <div className="md:hidden h-full w-full bg-[#111]" />
