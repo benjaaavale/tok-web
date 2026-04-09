@@ -9,8 +9,10 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
+export type LogoItem = string | { src: string; maxHeight?: string };
+
 // List of professional tech logos to use as default placeholders
-export const defaultPartnerLogos = [
+export const defaultPartnerLogos: LogoItem[] = [
   "https://cdn.worldvectorlogo.com/logos/react-2.svg",
   "https://cdn.worldvectorlogo.com/logos/next-js.svg",
   "https://cdn.worldvectorlogo.com/logos/typescript.svg",
@@ -18,17 +20,17 @@ export const defaultPartnerLogos = [
   "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg",
   "/images/mumu-audio-car.png",
   "/images/upgrade-smart.png",
-  "/images/cloudflare.svg",
-  "/images/anthropic.svg",
-  "/images/openai.svg",
-  "/images/google-calendar.svg",
-  "/images/ycloud.png",
+  { src: "/images/cloudflare.svg", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/anthropic.svg", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/openai.svg", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/google-calendar.svg", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/ycloud.png", maxHeight: "max-h-6 md:max-h-8" },
 ];
 
 interface AnimatedCarouselProps {
   autoPlay?: boolean;
   autoPlayInterval?: number;
-  logos?: string[] | null;
+  logos?: LogoItem[] | null;
   containerClassName?: string;
   carouselClassName?: string;
   logoClassName?: string;
@@ -87,6 +89,8 @@ export const AnimatedCarousel = ({
   const logoItems = logos || defaultPartnerLogos;
 
   const logoImageSizeClasses = `${logoImageWidth} ${logoImageHeight} ${logoMaxWidth} ${logoMaxHeight}`.trim();
+  const resolveLogo = (item: LogoItem) =>
+    typeof item === "string" ? { src: item, maxHeight: undefined } : item;
 
   return (
     <div className={cn("w-full bg-transparent overflow-hidden", padding, containerClassName)}>
@@ -102,32 +106,38 @@ export const AnimatedCarousel = ({
               className={cn("w-full", carouselClassName)}
             >
               <CarouselContent className="-ml-2 md:-ml-4">
-                {logoItems.map((logo, index) => (
-                  <CarouselItem 
-                    className={cn(
-                      "pl-2 md:pl-4",
-                      `basis-1/${itemsPerViewMobile} lg:basis-1/${itemsPerViewDesktop}`
-                    )} 
-                    key={index}
-                  >
-                    <div className={cn(
-                      "flex rounded-md items-center justify-center p-2 opacity-60 hover:opacity-100 transition-opacity duration-300",
-                      logoContainerWidth, 
-                      logoContainerHeight,
-                      logoClassName
-                    )}>
-                      <img 
-                        src={logo}
-                        alt={`Partner Logo ${index + 1}`}
-                        className={cn(
-                          logoImageSizeClasses,
-                          "object-contain filter grayscale hover:grayscale-0 dark:brightness-0 dark:invert transition-all duration-300"
-                        )}
-                        draggable={false}
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
+                {logoItems.map((logoItem, index) => {
+                  const { src, maxHeight: itemMaxHeight } = resolveLogo(logoItem);
+                  const imgClasses = itemMaxHeight
+                    ? `${logoImageWidth} ${logoImageHeight} ${logoMaxWidth} ${itemMaxHeight}`
+                    : logoImageSizeClasses;
+                  return (
+                    <CarouselItem
+                      className={cn(
+                        "pl-2 md:pl-4",
+                        `basis-1/${itemsPerViewMobile} lg:basis-1/${itemsPerViewDesktop}`
+                      )}
+                      key={index}
+                    >
+                      <div className={cn(
+                        "flex rounded-md items-center justify-center p-2 opacity-60 hover:opacity-100 transition-opacity duration-300",
+                        logoContainerWidth,
+                        logoContainerHeight,
+                        logoClassName
+                      )}>
+                        <img
+                          src={src}
+                          alt={`Partner Logo ${index + 1}`}
+                          className={cn(
+                            imgClasses,
+                            "object-contain filter grayscale hover:grayscale-0 dark:brightness-0 dark:invert transition-all duration-300"
+                          )}
+                          draggable={false}
+                        />
+                      </div>
+                    </CarouselItem>
+                  );
+                })}
               </CarouselContent>
             </Carousel>
           </div>
