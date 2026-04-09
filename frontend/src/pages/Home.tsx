@@ -84,7 +84,7 @@ function Home() {
         </section>
 
         {/* Infinite Logo Carousel — between hero and text reveal */}
-        <div className="relative z-20 -mt-8 md:-mt-16 pb-6">
+        <div className="relative z-20 mt-4 md:mt-0 pb-6">
           <section className="relative w-full">
             <div className="w-full relative max-w-[100vw]">
               <AnimatedCarousel />
