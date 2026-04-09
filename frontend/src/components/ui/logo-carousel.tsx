@@ -23,7 +23,7 @@ export const defaultPartnerLogos: LogoItem[] = [
   { src: "/images/cloudflare.svg", maxHeight: "max-h-6 md:max-h-8" },
   { src: "/images/anthropic.svg", maxHeight: "max-h-6 md:max-h-8" },
   { src: "/images/openai.svg", maxHeight: "max-h-6 md:max-h-8" },
-  { src: "/images/google-calendar.svg", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/google-calendar.svg", maxHeight: "max-h-8 md:max-h-11" },
   { src: "/images/ycloud.png", maxHeight: "max-h-6 md:max-h-8" },
 ];
 
