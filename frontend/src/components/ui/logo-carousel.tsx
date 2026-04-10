@@ -12,10 +12,10 @@ export const defaultPartnerLogos: LogoItem[] = [
   "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg",
   { src: "/images/mumu-audio-car.png", maxHeight: "max-h-9 md:max-h-11" },
   { src: "/images/upgrade-smart.png", maxHeight: "max-h-9 md:max-h-11" },
-  { src: "/images/cloudflare.svg", maxHeight: "max-h-5 md:max-h-6" },
-  { src: "/images/anthropic.svg", maxHeight: "h-3 max-w-[90px] md:max-w-[105px]" },
-  { src: "/images/openai.svg", maxHeight: "h-5 md:h-6 max-w-[120px] md:max-w-[140px]" },
-  { src: "/images/google-calendar.svg", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/cloudflare.svg", maxHeight: "h-5 md:h-6" },
+  { src: "/images/anthropic.svg", maxHeight: "h-3 md:h-4" },
+  { src: "/images/openai.svg", maxHeight: "h-5 md:h-6" },
+  { src: "/images/google-calendar.svg", maxHeight: "h-7 md:h-9" },
   { src: "/images/ycloud.png", maxHeight: "max-h-5 md:max-h-6" },
 ];
 
@@ -53,7 +53,7 @@ export const AnimatedCarousel = ({
             <div
               key={index}
               className={cn(
-                "flex items-center justify-center px-5 md:px-8 opacity-60 hover:opacity-100 transition-opacity duration-300",
+                "flex items-center justify-center shrink-0 w-[140px] md:w-[180px] opacity-60 hover:opacity-100 transition-opacity duration-300",
                 logoClassName
               )}
             >
