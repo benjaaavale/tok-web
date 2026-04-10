@@ -12,11 +12,11 @@ export const defaultPartnerLogos: LogoItem[] = [
   "https://cdn.worldvectorlogo.com/logos/github-icon-1.svg",
   "/images/mumu-audio-car.png",
   "/images/upgrade-smart.png",
-  { src: "/images/cloudflare.svg", maxHeight: "max-h-6 md:max-h-8" },
-  { src: "/images/anthropic.svg", maxHeight: "max-h-6 md:max-h-8" },
-  { src: "/images/openai.svg", maxHeight: "max-h-6 md:max-h-8" },
-  { src: "/images/google-calendar.svg", maxHeight: "max-h-8 md:max-h-11" },
-  { src: "/images/ycloud.png", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/cloudflare.svg", maxHeight: "max-h-5 md:max-h-6" },
+  { src: "/images/anthropic.svg", maxHeight: "h-5 md:h-6" },
+  { src: "/images/openai.svg", maxHeight: "h-5 md:h-6" },
+  { src: "/images/google-calendar.svg", maxHeight: "max-h-6 md:max-h-8" },
+  { src: "/images/ycloud.png", maxHeight: "max-h-5 md:max-h-6" },
 ];
 
 interface AnimatedCarouselProps {
@@ -36,7 +36,7 @@ export const AnimatedCarousel = ({
   containerClassName = "",
   logoClassName = "",
   padding = "py-10",
-  logoMaxHeight = "max-h-10 md:max-h-14",
+  logoMaxHeight = "max-h-7 md:max-h-9",
   speed = 40,
 }: AnimatedCarouselProps) => {
   const logoItems = logos || defaultPartnerLogos;
