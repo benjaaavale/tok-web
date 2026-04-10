@@ -13,7 +13,7 @@ export const defaultPartnerLogos: LogoItem[] = [
   "/images/mumu-audio-car.png",
   "/images/upgrade-smart.png",
   { src: "/images/cloudflare.svg", maxHeight: "max-h-5 md:max-h-6" },
-  { src: "/images/anthropic.svg", maxHeight: "h-5 md:h-6" },
+  { src: "/images/anthropic.svg", maxHeight: "h-4 md:h-5 max-w-[90px] md:max-w-[110px]" },
   { src: "/images/openai.svg", maxHeight: "h-5 md:h-6" },
   { src: "/images/google-calendar.svg", maxHeight: "max-h-6 md:max-h-8" },
   { src: "/images/ycloud.png", maxHeight: "max-h-5 md:max-h-6" },
