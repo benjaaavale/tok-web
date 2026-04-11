@@ -103,12 +103,16 @@ const ConnectorLine = memo(({ index }: { index: number }) => (
       style={{ zIndex: 5 }}
     >
       <div className="w-full h-full bg-gradient-to-r from-gray-200 dark:from-white/10 to-gray-200 dark:to-white/10 rounded-full" />
-      {/* Animated dot */}
+      {/* Animated dot — loops forever */}
       <motion.div
-        initial={{ left: "0%" }}
-        whileInView={{ left: "100%" }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 1.2, delay: 0.5 + index * 0.15, ease: "easeInOut" }}
+        animate={{ left: ["0%", "100%"] }}
+        transition={{
+          duration: 1.4,
+          delay: index * 0.5,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatDelay: 1.5,
+        }}
         className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"
       />
     </motion.div>
