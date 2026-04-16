@@ -227,7 +227,7 @@ export function PricingSection4() {
             className="h-full"
           >
             <Card
-              className={`relative h-full text-gray-900 transition-transform duration-300 hover:-translate-y-2 ${
+              className={`relative h-full flex flex-col text-gray-900 transition-transform duration-300 hover:-translate-y-2 ${
                 plan.popular
                   ? "bg-white border-blue-500/50 shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] z-20 scale-105 md:scale-105"
                   : "bg-white border-gray-200 shadow-sm z-10"
@@ -262,8 +262,8 @@ export function PricingSection4() {
                 <p className="text-sm text-gray-500 mt-4 leading-relaxed h-10">{plan.description}</p>
               </CardHeader>
 
-              <CardContent className="pt-4 flex flex-col justify-between h-[calc(100%-180px)]">
-                <div className="space-y-4 pt-4 border-t border-gray-100 mb-8">
+              <CardContent className="pt-4 flex flex-col flex-1">
+                <div className="space-y-4 pt-4 border-t border-gray-100 flex-1">
                   <h4 className="font-semibold text-sm text-gray-700 uppercase tracking-wider">
                     Incluye:
                   </h4>
@@ -285,7 +285,7 @@ export function PricingSection4() {
                 </div>
                 
                 <button
-                  className={`w-full p-4 mt-auto text-sm md:text-base font-semibold rounded-xl transition-all cursor-pointer ${
+                  className={`w-full p-4 mt-8 text-sm md:text-base font-semibold rounded-xl transition-all cursor-pointer ${
                     plan.popular
                       ? "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white shadow-lg shadow-blue-500/25"
                       : "bg-gray-50 hover:bg-gray-100 text-gray-800 border border-gray-200"

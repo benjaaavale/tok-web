@@ -24,7 +24,7 @@ const TextRevealByWord: FC<TextRevealByWordProps> = ({
 
   return (
     <div className={cn("relative z-10", className)}>
-      <div className="mx-auto flex max-w-4xl items-center justify-center px-4 sm:px-6 lg:px-8 py-24 md:py-32 bg-transparent">
+      <div className="mx-auto flex max-w-4xl items-center justify-center px-4 sm:px-6 lg:px-8 py-10 md:py-24 bg-transparent">
         <p
           className="flex flex-wrap text-3xl md:text-5xl lg:text-6xl xl:text-7xl justify-center leading-tight md:leading-snug font-bold"
         >
