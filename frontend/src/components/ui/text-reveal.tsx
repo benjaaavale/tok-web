@@ -61,12 +61,26 @@ const Word: FC<WordProps> = ({ children, isHighlight }) => {
           : undefined
       }
     >
-      {/* Dim base layer (always visible) */}
-      <span className="opacity-20 text-black dark:text-white">{children}</span>
-      {/* Lit layer (fades in on hover) */}
+      {/* Dim base layer — visible on mobile, hidden on md+ */}
+      <span className="opacity-20 text-black dark:text-white md:inline hidden">{children}</span>
+      {/* On mobile: fully visible static text */}
       <span
         className={cn(
-          "absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100",
+          "md:hidden text-black dark:text-white",
+          isHighlight && "text-blue-600 dark:text-blue-400"
+        )}
+        style={
+          isHighlight
+            ? { textShadow: "0 0 20px rgba(37, 99, 235, 0.4), 0 0 40px rgba(37, 99, 235, 0.2)" }
+            : undefined
+        }
+      >
+        {children}
+      </span>
+      {/* Lit layer on md+ (fades in on hover) */}
+      <span
+        className={cn(
+          "absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 hidden md:inline",
           "text-black dark:text-white",
           isHighlight && "text-blue-600 dark:text-blue-400"
         )}
