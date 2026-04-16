@@ -258,9 +258,7 @@ export function PricingSection4() {
                     /mes <span className="text-[10px] text-gray-400">+ IVA</span>
                   </span>
                 </div>
-                {isYearly && (
-                  <p className="text-xs text-blue-600 font-semibold mt-1">Facturado anualmente · Ahorra 20%</p>
-                )}
+                <p className={`text-xs text-blue-600 font-semibold mt-1 transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>Facturado anualmente · Ahorra 20%</p>
                 <p className="text-sm text-gray-500 mt-4 leading-relaxed h-10">{plan.description}</p>
               </CardHeader>
 
