@@ -14,8 +14,8 @@ const plans = [
     description:
       "Ideal para pequeños negocios y startups que buscan empezar con IA.",
     price: 119990,
-    yearlyMonthlyPrice: 92990,
-    yearlyDiscount: 23,
+    yearlyMonthlyPrice: 101990,
+    yearlyDiscount: 15,
     conversations: "500",
     buttonText: "Comenzar",
     buttonVariant: "outline" as const,
@@ -31,8 +31,8 @@ const plans = [
     description:
       "El mejor valor para negocios listos para escalar sus ventas.",
     price: 254990,
-    yearlyMonthlyPrice: 249990,
-    yearlyDiscount: 2,
+    yearlyMonthlyPrice: 203990,
+    yearlyDiscount: 20,
     conversations: "2.000",
     buttonText: "Comenzar",
     buttonVariant: "default" as const,
@@ -52,8 +52,8 @@ const plans = [
     description:
       "Plan avanzado con límites personalizados y soporte prioritario.",
     price: 499990,
-    yearlyMonthlyPrice: 430990,
-    yearlyDiscount: 14,
+    yearlyMonthlyPrice: 384990,
+    yearlyDiscount: 23,
     conversations: "5.000",
     buttonText: "Contactar Ventas",
     buttonVariant: "outline" as const,
