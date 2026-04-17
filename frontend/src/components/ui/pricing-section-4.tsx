@@ -29,8 +29,8 @@ const plans = [
     name: "Pro",
     description:
       "El mejor valor para negocios listos para escalar sus ventas.",
-    price: 309990,
-    yearlyMonthlyPrice: 247992,
+    price: 254990,
+    yearlyMonthlyPrice: 203992,
     conversations: "2.000",
     buttonText: "Comenzar",
     buttonVariant: "default" as const,
@@ -48,8 +48,8 @@ const plans = [
     name: "Enterprise",
     description:
       "Plan avanzado con límites personalizados y soporte prioritario.",
-    price: 544990,
-    yearlyMonthlyPrice: 435992,
+    price: 499990,
+    yearlyMonthlyPrice: 399992,
     conversations: "5.000",
     buttonText: "Contactar Ventas",
     buttonVariant: "outline" as const,
