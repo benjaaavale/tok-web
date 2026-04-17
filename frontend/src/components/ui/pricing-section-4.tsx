@@ -14,7 +14,8 @@ const plans = [
     description:
       "Ideal para pequeños negocios y startups que buscan empezar con IA.",
     price: 119990,
-    yearlyMonthlyPrice: 95992,
+    yearlyMonthlyPrice: 92990,
+    yearlyDiscount: 23,
     conversations: "500",
     buttonText: "Comenzar",
     buttonVariant: "outline" as const,
@@ -30,7 +31,8 @@ const plans = [
     description:
       "El mejor valor para negocios listos para escalar sus ventas.",
     price: 254990,
-    yearlyMonthlyPrice: 203992,
+    yearlyMonthlyPrice: 249990,
+    yearlyDiscount: 2,
     conversations: "2.000",
     buttonText: "Comenzar",
     buttonVariant: "default" as const,
@@ -49,7 +51,8 @@ const plans = [
     description:
       "Plan avanzado con límites personalizados y soporte prioritario.",
     price: 499990,
-    yearlyMonthlyPrice: 399992,
+    yearlyMonthlyPrice: 430990,
+    yearlyDiscount: 14,
     conversations: "5.000",
     buttonText: "Contactar Ventas",
     buttonVariant: "outline" as const,
@@ -105,7 +108,7 @@ const PricingSwitch = ({ onSwitch }: { onSwitch: (value: string) => void }) => {
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
             />
           )}
-          <span className="relative flex items-center gap-2">Anual <span className="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full whitespace-nowrap hidden sm:block">Ahorra ~20%</span></span>
+          <span className="relative flex items-center gap-2">Anual <span className="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-0.5 rounded-full whitespace-nowrap hidden sm:block">Ahorra hasta 23%</span></span>
         </button>
       </div>
     </div>
@@ -258,7 +261,7 @@ export function PricingSection4() {
                     /mes <span className="text-[10px] text-gray-400">+ IVA</span>
                   </span>
                 </div>
-                <p className={`text-xs text-blue-600 font-semibold mt-1 transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>Facturado anualmente · Ahorra 20%</p>
+                <p className={`text-xs text-blue-600 font-semibold mt-1 transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>Facturado anualmente · Ahorra {plan.yearlyDiscount}%</p>
                 <p className="text-sm text-gray-500 mt-4 leading-relaxed h-10">{plan.description}</p>
               </CardHeader>
 
@@ -298,6 +301,10 @@ export function PricingSection4() {
           </TimelineContent>
         ))}
       </div>
+
+      <p className="text-center text-xs text-gray-400 mt-4 px-4 relative z-10">
+        * Se cobra $300 + IVA por cada conversación adicional que supere el límite mensual del plan.
+      </p>
     </div>
   );
 }
