@@ -250,9 +250,9 @@ export function PricingSection4() {
             className="h-full"
           >
             <Card
-              className={`relative h-full flex flex-col text-gray-900 transition-transform duration-300 hover:-translate-y-2 ${
+              className={`relative h-full flex flex-col text-gray-900 transition-transform duration-300 md:hover:-translate-y-2 ${
                 plan.popular
-                  ? "bg-white border-blue-500/50 shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] z-20 scale-105 md:scale-105"
+                  ? "bg-white border-blue-500/50 shadow-[0_0_40px_-10px_rgba(59,130,246,0.2)] z-20 md:scale-105"
                   : "bg-white border-gray-200 shadow-sm z-10"
               }`}
             >

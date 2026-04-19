@@ -112,10 +112,10 @@ export function InteractiveFeatureShowcase() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
         {/* LEFT COLUMN: Feature Selection */}
-        <div className="flex flex-col space-y-2 relative">
+        <div className="flex flex-col space-y-2 relative lg:h-[600px] lg:overflow-hidden">
 
           {/* Vertical progress line */}
           <div className="absolute left-[31px] top-8 bottom-8 w-[1px] bg-gray-200 dark:bg-zinc-800" />

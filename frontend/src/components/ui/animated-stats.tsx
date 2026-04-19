@@ -163,6 +163,99 @@ const TabButton = memo(
 TabButton.displayName = "TabButton";
 
 /* ------------------------------------------------------------------ */
+/* Per-stat visual elements                                            */
+/* ------------------------------------------------------------------ */
+const StatVisual = ({ id, color }: { id: string; color: string }) => {
+  if (id === "conversions") return (
+    <div className="flex items-end gap-2 h-16">
+      {[30, 55, 90].map((h, i) => (
+        <motion.div
+          key={i}
+          initial={{ height: 0 }}
+          animate={{ height: `${h}%` }}
+          transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+          className={`w-8 rounded-t-md bg-gradient-to-t ${color} opacity-${i === 2 ? "100" : i === 1 ? "60" : "30"}`}
+          style={{ height: `${h}%` }}
+        />
+      ))}
+      <div className="flex flex-col justify-end gap-1 ml-2 h-full pb-0.5">
+        <span className="text-[11px] text-gray-400">antes</span>
+        <span className="text-[11px] font-semibold text-gray-700">3x</span>
+      </div>
+    </div>
+  );
+
+  if (id === "hours") return (
+    <div className="flex gap-1">
+      {["L","M","M","J","V"].map((day, i) => (
+        <div key={i} className="flex flex-col items-center gap-1">
+          <motion.div
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
+            className={`w-8 rounded-md bg-gradient-to-t ${color}`}
+            style={{ height: `${[24, 32, 20, 36, 28][i]}px` }}
+          />
+          <span className="text-[10px] text-gray-400">{day}</span>
+        </div>
+      ))}
+      <div className="ml-2 flex items-center">
+        <span className="text-xs text-gray-500">≈3h/día</span>
+      </div>
+    </div>
+  );
+
+  if (id === "availability") return (
+    <div className="flex items-center gap-3">
+      {["00", "06", "12", "18", "23"].map((h, i) => (
+        <div key={i} className="flex flex-col items-center gap-1">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: i * 0.1 }}
+            className={`w-7 h-7 rounded-full bg-gradient-to-br ${color} flex items-center justify-center`}
+          >
+            <span className="text-[9px] text-white font-bold">{h}</span>
+          </motion.div>
+          <div className="w-0.5 h-3 bg-gray-200 dark:bg-gray-700 rounded-full" />
+        </div>
+      ))}
+    </div>
+  );
+
+  if (id === "bookings") return (
+    <div className="w-full space-y-2">
+      <div className="flex items-center gap-2">
+        <span className="text-[11px] text-gray-400 w-12">Antes</span>
+        <div className="flex-1 h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "38%" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="h-full rounded-full bg-gray-300 dark:bg-gray-600"
+          />
+        </div>
+        <span className="text-[11px] text-gray-400 w-7">38%</span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 w-12">Ahora</span>
+        <div className="flex-1 h-3 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "65%" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className={`h-full rounded-full bg-gradient-to-r ${color}`}
+          />
+        </div>
+        <span className="text-[11px] font-semibold text-gray-700 dark:text-gray-300 w-7">65%</span>
+      </div>
+    </div>
+  );
+
+  return null;
+};
+
+/* ------------------------------------------------------------------ */
 /* Detail panel                                                        */
 /* ------------------------------------------------------------------ */
 const DetailPanel = memo(
@@ -176,14 +269,19 @@ const DetailPanel = memo(
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -20 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="h-full flex flex-col justify-center"
+        className="h-full flex flex-col justify-center w-full"
       >
         {/* Big number */}
-        <div className="mb-6">
+        <div className="mb-4">
           <span className={`text-7xl md:text-8xl font-bold tracking-tight ${stat.iconColor}`}>
             {count}
             {stat.suffix}
           </span>
+        </div>
+
+        {/* Visual element */}
+        <div className="mb-5">
+          <StatVisual id={stat.id} color={stat.color} />
         </div>
 
         {/* Title */}
