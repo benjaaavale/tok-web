@@ -32,7 +32,7 @@ function Home() {
               titleComponent={
                 <div className="flex flex-col items-center pb-8 md:pb-12">
                   <h1 className="text-4xl md:text-6xl font-semibold text-black dark:text-white mb-6 md:mb-10">
-                    Escala tus ventas en WhatsApp <br />
+                    Escala tus ventas por mensajes <br />
                     <span 
                       className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-blue-600 dark:text-blue-500"
                     >

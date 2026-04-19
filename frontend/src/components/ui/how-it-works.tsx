@@ -13,9 +13,9 @@ const steps = [
   {
     number: "01",
     icon: <IconBrandWhatsapp className="w-6 h-6" stroke={1.6} />,
-    title: "Conecta tu WhatsApp",
+    title: "Conecta tus canales",
     description:
-      "Vincula tu número de WhatsApp Business en minutos. Sin configuraciones complejas ni código.",
+      "Vincula WhatsApp, Instagram o Messenger en minutos. Sin configuraciones complejas ni código.",
     color: "from-green-500 to-emerald-500",
     iconBg: "bg-green-50 dark:bg-green-500/10",
     iconColor: "text-green-600 dark:text-green-400",

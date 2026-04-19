@@ -19,11 +19,11 @@ export function FeaturesSectionWithHoverEffects() {
       highlights: ["IA", "documentos", "automático", "24/7"],
     },
     {
-      title: "Enfoque Nativo en WhatsApp",
+      title: "Omnicanal: WhatsApp, Instagram y Messenger",
       description:
-        "Atiende a tus clientes donde ya están. Gestiona todas las conversaciones fácilmente desde tu panel de ToK.",
+        "Atiende a tus clientes donde ya están. Gestiona todos los canales de mensajería desde tu panel de ToK.",
       icon: <IconBrandWhatsapp />,
-      highlights: ["clientes", "conversaciones", "ToK"],
+      highlights: ["clientes", "canales", "ToK"],
     },
     {
       title: "Google Calendar Inteligente",
@@ -42,9 +42,9 @@ export function FeaturesSectionWithHoverEffects() {
     {
       title: "Configuración Súper Rápida",
       description: 
-        "Empieza a automatizar tus ventas en menos de 5 minutos. Sin código. Conecta tu WhatsApp, sube tus PDFs y la IA hace el resto.",
+        "Empieza a automatizar tus ventas en menos de 5 minutos. Sin código. Conecta tu canal, sube tus PDFs y la IA hace el resto.",
       icon: <IconBolt />,
-      highlights: ["automatizar", "ventas", "5", "minutos", "WhatsApp", "PDFs"],
+      highlights: ["automatizar", "ventas", "5", "minutos", "canal", "PDFs"],
     },
     {
       title: "Soporte Prioritario",

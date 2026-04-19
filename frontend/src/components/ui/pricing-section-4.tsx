@@ -8,6 +8,12 @@ import NumberFlow from "@number-flow/react";
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
+const comingSoon = [
+  "Llamadas de voz con IA",
+  "Integración con Shopify",
+  "Integración con CRMs",
+];
+
 const plans = [
   {
     name: "Starter",
@@ -19,10 +25,12 @@ const plans = [
     buttonText: "Comenzar",
     buttonVariant: "outline" as const,
     includes: [
-      "Acceso al Agente IA",
-      "Conecta 1 número de WhatsApp",
-      "Alimentación manual de documentos",
-      "Hasta 500 conversaciones/mes",
+      "Agente IA entrenado con tu información",
+      "Conecta 1 canal (WhatsApp, Instagram o Messenger)",
+      "Respuestas automáticas 24/7",
+      "Plantillas de agentes",
+      "Campañas outbound",
+      "Calificación automática de leads",
     ],
   },
   {
@@ -36,13 +44,16 @@ const plans = [
     buttonVariant: "default" as const,
     popular: true,
     includes: [
-      "Acceso al Agente IA",
-      "Conecta hasta 2 números de WhatsApp",
-      "Alimentación manual de documentos",
+      "Agente IA entrenado con tu información",
+      "Conecta hasta 2 canales de mensajería",
+      "Respuestas automáticas 24/7",
+      "Plantillas de agentes",
+      "Campañas outbound",
+      "Calificación automática de leads",
       "Sincronización con Google Calendar",
       "Agendamiento y Reagendamiento Automático",
       "Calendarios para Múltiples Trabajadores",
-      "Hasta 2.000 conversaciones/mes",
+      "Reportes de conversaciones",
     ],
   },
   {
@@ -55,13 +66,16 @@ const plans = [
     buttonText: "Contactar Ventas",
     buttonVariant: "outline" as const,
     includes: [
-      "Acceso al Agente IA",
-      "Conecta hasta 2 números de WhatsApp",
-      "Alimentación manual de documentos",
+      "Agente IA entrenado con tu información",
+      "Conecta hasta 5 canales de mensajería",
+      "Respuestas automáticas 24/7",
+      "Plantillas de agentes",
+      "Campañas outbound",
+      "Calificación automática de leads",
       "Sincronización con Google Calendar",
       "Agendamiento y Reagendamiento Automático",
       "Calendarios para Múltiples Trabajadores",
-      "Hasta 5.000 conversaciones/mes",
+      "Reportes avanzados y analíticas",
       "Manager de Cuenta Dedicado",
       "Soporte Prioritario 24/7",
     ],
@@ -211,7 +225,7 @@ export function PricingSection4() {
           customVariants={revealVariants}
           className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto"
         >
-          Automatiza tu canal de ventas en WhatsApp con ToK, elige el mejor plan para tu volumen.
+          Automatiza tus ventas por mensajes con IA. Elige el plan que se adapta a tu volumen.
         </TimelineContent>
 
         <TimelineContent
@@ -267,8 +281,13 @@ export function PricingSection4() {
                     /mes <span className="text-[10px] text-gray-400">+ IVA</span>
                   </span>
                 </div>
-                <p className={`text-xs text-blue-600 font-semibold mt-1 transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>Facturado anualmente · Ahorra {plan.yearlyDiscount}%</p>
-                <p className="text-sm text-gray-500 mt-4 leading-relaxed h-10">{plan.description}</p>
+                <div className="mt-2">
+                  <span className="inline-flex items-center text-xs font-semibold text-gray-700 bg-gray-100 px-2.5 py-1 rounded-full">
+                    {plan.conversations} conversaciones / mes
+                  </span>
+                </div>
+                <p className={`text-xs text-blue-600 font-semibold mt-2 transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>Facturado anualmente · Ahorra {plan.yearlyDiscount}%</p>
+                <p className="text-sm text-gray-500 mt-3 leading-relaxed h-10">{plan.description}</p>
               </CardHeader>
 
               <CardContent className="pt-4 flex flex-col flex-1">
@@ -293,8 +312,21 @@ export function PricingSection4() {
                   </ul>
                 </div>
                 
+                {/* Próximamente */}
+                <div className="mt-6 pt-4 border-t border-dashed border-gray-100">
+                  <p className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Próximamente</p>
+                  <ul className="space-y-1.5">
+                    {comingSoon.map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-xs text-gray-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 <button
-                  className={`w-full p-4 mt-8 text-sm md:text-base font-semibold rounded-xl transition-all cursor-pointer ${
+                  className={`w-full p-4 mt-6 text-sm md:text-base font-semibold rounded-xl transition-all cursor-pointer ${
                     plan.popular
                       ? "bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white shadow-lg shadow-blue-500/25"
                       : "bg-gray-50 hover:bg-gray-100 text-gray-800 border border-gray-200"

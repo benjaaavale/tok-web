@@ -2,12 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  ShoppingCart, 
-  RotateCcw, 
-  Clock, 
-  Settings, 
-  ClipboardList,
+import {
+  Layers,
+  Send,
+  CalendarCheck,
+  Zap,
+  UserCheck,
   CheckCircle2
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,7 +18,6 @@ type ChatMessage = {
   role: "user" | "agent";
   text: string;
   time: string;
-  products?: boolean;
   agentSignature?: boolean;
 };
 
@@ -33,57 +32,62 @@ type Feature = {
 // --- Data ---
 const features: Feature[] = [
   {
-    id: "ventas",
-    title: "Convierte conversaciones en ventas reales",
-    description: "ToK guía la conversación, recomienda productos y acelera el cierre con respuestas precisas, en el momento correcto. Resuelve dudas, arma carritos y genera links de pago directamente desde el chat.",
-    icon: ShoppingCart,
+    id: "omnicanal",
+    title: "Omnicanal: un solo panel para todo",
+    description: "Gestiona WhatsApp, Instagram y Messenger desde una sola plataforma. Tu agente IA responde en todos los canales con el mismo tono y conocimiento de tu negocio.",
+    icon: Layers,
     chat: [
-      { id: "1", role: "user", text: "Hola! Estoy buscando una crema para piel sensible", time: "14:34" },
-      { id: "2", role: "agent", text: "¡Perfecto! Te dejo 3 opciones aptas para piel sensible y que ayudan a hidratar sin irritar.", time: "14:34", products: true },
-      { id: "3", role: "user", text: "Me gusta la primera, la crema de rostro", time: "14:35" },
-      { id: "4", role: "agent", text: "¡Listo! Te armé el carrito para pagar cuando quieras. ¡Disfruta tu compra! tok.shop/carrito/crema", time: "14:35", agentSignature: true },
+      { id: "1", role: "user", text: "Hola! Vi su publicación en Instagram y me interesa saber más 👀", time: "11:02" },
+      { id: "2", role: "agent", text: "¡Hola! Claro, con gusto te cuento. ¿Qué tipo de negocio tienes? Así te explico cómo ToK puede ayudarte 🚀", time: "11:02", agentSignature: true },
+      { id: "3", role: "user", text: "Tengo una clínica estética, manejamos muchas citas por WhatsApp pero se nos va de las manos", time: "11:03" },
+      { id: "4", role: "agent", text: "¡Perfecto caso de uso! ToK automatiza el agendamiento, confirmaciones y seguimiento. ¿Te agendo una demo esta semana? 📅", time: "11:04", agentSignature: true },
     ]
   },
   {
-    id: "recupera",
-    title: "Recupera ingresos por abandono",
-    description: "Contacta proactivamente a los prospectos que dejaron de responder, ofreciendo asistencia o incentivos para retomar la conversación y cerrar la venta.",
-    icon: RotateCcw,
+    id: "outbound",
+    title: "Campañas outbound automatizadas",
+    description: "Lanza campañas masivas a tu base de contactos y haz seguimiento automático. Reactiva leads fríos, comunica promociones y convierte más sin esfuerzo manual.",
+    icon: Send,
     chat: [
-      { id: "1", role: "agent", text: "¡Hola María! Te escribo porque vi que quedamos con una pregunta pendiente 😊 ¿Pudiste revisar la información que te envié?", time: "10:15", agentSignature: true },
-      { id: "2", role: "user", text: "Ay sí, me olvidé de responder. Estaba evaluándolo con mi pareja", time: "10:44" },
-      { id: "3", role: "agent", text: "¡Sin problema! Para ayudarte a decidir, te puedo agendar una llamada rápida de 10 min con nuestro equipo. ¿Te acomoda esta semana? 📅", time: "10:44", agentSignature: true },
+      { id: "1", role: "agent", text: "¡Hola Camila! 👋 Te escribimos desde Clínica Belleza. Esta semana tenemos 20% off en todos nuestros tratamientos faciales. ¿Te interesa reservar?", time: "10:00", agentSignature: true },
+      { id: "2", role: "user", text: "Hola! Sí, ¿tienen disponibilidad para el jueves?", time: "10:23" },
+      { id: "3", role: "agent", text: "¡Claro! Tengo el jueves a las 11:00 y 15:30. ¿Cuál prefieres? El descuento aplica solo hasta el domingo 😊", time: "10:23", agentSignature: true },
+      { id: "4", role: "user", text: "Las 11:00 perfecto!", time: "10:24" },
     ]
   },
   {
-    id: "atencion",
-    title: "Atención inmediata 24/7",
-    description: "Tus clientes siempre reciben una respuesta instantánea, de madrugada o en feriados, manteniendo perfectamente el tono de voz de tu marca.",
-    icon: Clock,
+    id: "agendamiento",
+    title: "Agendamiento y reagendamiento automático",
+    description: "Tu agente IA consulta la disponibilidad en Google Calendar en tiempo real, agenda citas, envía confirmaciones y recuerda a tus clientes sin intervención humana.",
+    icon: CalendarCheck,
     chat: [
-      { id: "1", role: "user", text: "¿Están atendiendo hoy domingo? Necesito saber si el plan Pro incluye soporte", time: "03:12 am" },
-      { id: "2", role: "agent", text: "¡Hola! Sí, el Plan Pro incluye manager de cuenta dedicado y soporte prioritario 24/7. Te dejo la tabla comparativa aquí.", time: "03:12 am", agentSignature: true },
-      { id: "3", role: "user", text: "Genial, lo contrato ahora mismo", time: "03:14 am" },
+      { id: "1", role: "user", text: "Hola, quisiera agendar una consulta para esta semana", time: "09:15" },
+      { id: "2", role: "agent", text: "¡Hola! Con gusto. Tengo disponibilidad el miércoles a las 10:00, 12:00 y 16:00, y el viernes a las 09:00 y 14:00. ¿Cuál te acomoda mejor?", time: "09:15", agentSignature: true },
+      { id: "3", role: "user", text: "El miércoles a las 12:00", time: "09:16" },
+      { id: "4", role: "agent", text: "¡Listo! Agendé tu cita para el miércoles a las 12:00 📅 Recibirás un recordatorio 24h y 1h antes. ¿Necesitas algo más?", time: "09:16", agentSignature: true },
     ]
   },
   {
-    id: "setup",
-    title: "Configuración rápida y ajustable",
-    description: "Configura tu agente IA en cuestión de minutos suministrando tus PDFs, FAQs o base de conocimiento. Ajusta su comportamiento en tiempo real.",
-    icon: Settings,
+    id: "calificacion",
+    title: "Calificación automática de leads",
+    description: "La IA detecta el nivel de interés de cada prospecto, hace las preguntas correctas y prioriza los leads con mayor probabilidad de conversión para tu equipo.",
+    icon: Zap,
     chat: [
-      { id: "1", role: "user", text: "¿Cómo configuro las políticas de devolución?", time: "11:00" },
-      { id: "2", role: "agent", text: "Solo tienes que subir tu PDF de 'Políticas de Envío y Devolución' a la plataforma Tok. Yo leeré el documento y responderé basándome exactamente en tus reglas.", time: "11:00", agentSignature: true },
+      { id: "1", role: "user", text: "¿Cuánto cuesta el plan para empresas?", time: "14:10" },
+      { id: "2", role: "agent", text: "El plan Enterprise parte en $499.990/mes. Para darte la mejor recomendación: ¿cuántos mensajes manejan hoy mensualmente?", time: "14:10", agentSignature: true },
+      { id: "3", role: "user", text: "Unas 3.000 conversaciones al mes, somos equipo de 15 personas", time: "14:12" },
+      { id: "4", role: "agent", text: "Con ese volumen, el plan Pro es perfecto para ustedes ✅ ¿Tienes 15 min para una demo esta semana con nuestro equipo?", time: "14:12", agentSignature: true },
     ]
   },
   {
-    id: "postventa",
-    title: "Controla y organiza tu postventa",
-    description: "Deriva automáticamente temas complejos o reclamos a tu equipo humano de atención al cliente, organizando los tickets por prioridad.",
-    icon: ClipboardList,
+    id: "derivacion",
+    title: "Derivación inteligente al equipo humano",
+    description: "Cuando la conversación lo requiere, la IA reconoce el momento exacto y transfiere al agente humano correcto con todo el contexto del chat, sin perder ningún detalle.",
+    icon: UserCheck,
     chat: [
-      { id: "1", role: "user", text: "Tengo un problema con el pedido #4492, llegó una caja rota", time: "16:20" },
-      { id: "2", role: "agent", text: "Lamento mucho escuchar eso. Estoy derivando este caso urgente a nuestro equipo humano de soporte con todas las fotos que enviaste. Un agente humano te responderá por este mismo canal en menos de 5 minutos.", time: "16:20", agentSignature: true },
+      { id: "1", role: "user", text: "Tuve una mala experiencia con mi último pedido y quiero hablar con alguien de atención al cliente", time: "16:45" },
+      { id: "2", role: "agent", text: "Lamento mucho lo ocurrido, eso no debería pasar. Voy a conectarte ahora mismo con nuestra jefa de atención al cliente para resolver esto de inmediato 🙏", time: "16:45", agentSignature: true },
+      { id: "3", role: "agent", text: "Ya le informé tu caso con el historial completo de la conversación. Sofía te responderá en menos de 2 minutos por este mismo chat.", time: "16:46", agentSignature: true },
     ]
   }
 ];
@@ -92,64 +96,60 @@ export function InteractiveFeatureShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Auto-cycle through features
   useEffect(() => {
     if (isHovered) return;
-    
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % features.length);
-    }, 6000); // changes every 6s
-    
+    }, 6000);
     return () => clearInterval(interval);
   }, [isHovered]);
 
   const activeFeature = features[activeIndex];
 
   return (
-    <div 
+    <div
       className="w-full max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
+
         {/* LEFT COLUMN: Feature Selection */}
         <div className="flex flex-col space-y-2 relative">
-          
+
           {/* Vertical progress line */}
           <div className="absolute left-[31px] top-8 bottom-8 w-[1px] bg-gray-200 dark:bg-zinc-800" />
-          
+
           {features.map((feature, index) => {
             const isActive = index === activeIndex;
             const Icon = feature.icon;
 
             return (
-              <div 
+              <div
                 key={feature.id}
                 onClick={() => setActiveIndex(index)}
                 className="relative z-10 cursor-pointer"
               >
                 <div className={cn(
                   "flex items-start gap-6 p-4 rounded-2xl transition-all duration-300",
-                  isActive 
-                    ? "bg-white dark:bg-zinc-900/80 shadow-lg dark:shadow-none border border-gray-100 dark:border-zinc-800/50" 
+                  isActive
+                    ? "bg-white dark:bg-zinc-900/80 shadow-lg dark:shadow-none border border-gray-100 dark:border-zinc-800/50"
                     : "hover:bg-gray-50 dark:hover:bg-zinc-900/30"
                 )}>
                   {/* Icon Circle */}
                   <div className={cn(
                     "relative flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full transition-all duration-500 z-20",
-                    isActive 
-                      ? "bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow-md" 
+                    isActive
+                      ? "bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 shadow-md"
                       : "bg-gray-100 dark:bg-zinc-900 border border-transparent shadow-none"
                   )}>
-                    <Icon 
+                    <Icon
                       className={cn(
                         "w-5 h-5 transition-colors duration-500",
                         isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-400 dark:text-zinc-500"
-                      )} 
+                      )}
                     />
-                    
-                    {/* Active Glow/Indicator */}
+
                     {isActive && (
                       <motion.div
                         layoutId="active-indicator"
@@ -169,7 +169,7 @@ export function InteractiveFeatureShowcase() {
                     )}>
                       {feature.title}
                     </h3>
-                    
+
                     <AnimatePresence initial={false}>
                       {isActive && (
                         <motion.div
@@ -194,13 +194,11 @@ export function InteractiveFeatureShowcase() {
 
         {/* RIGHT COLUMN: Mock Chat UI */}
         <div className="relative h-[450px] lg:h-[600px] w-full flex items-center justify-center rounded-3xl overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-zinc-900/50 dark:to-zinc-900/80 border border-gray-200/50 dark:border-zinc-800/50 shadow-xl dark:shadow-2xl">
-          
-          {/* Ambient Glow */}
+
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15)_0%,transparent_70%)] pointer-events-none" />
 
-          {/* Phone Frame wrapper */}
           <div className="relative w-full max-w-[400px] h-full max-h-[500px] flex flex-col mx-4 p-6 overflow-hidden">
-            
+
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200/50 dark:border-zinc-800/50">
               <span className="font-semibold text-gray-800 dark:text-zinc-200">Cliente</span>
               <span className="text-xs bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-400 px-2 py-1 rounded-full font-medium flex items-center gap-1.5">
@@ -224,26 +222,13 @@ export function InteractiveFeatureShowcase() {
                   >
                     <div className={cn(
                       "relative p-3.5 rounded-2xl shadow-sm text-[15px] leading-relaxed",
-                      msg.role === "user" 
-                        ? "bg-gray-100 text-gray-800 dark:bg-zinc-800 dark:text-zinc-200 rounded-tr-sm" 
+                      msg.role === "user"
+                        ? "bg-gray-100 text-gray-800 dark:bg-zinc-800 dark:text-zinc-200 rounded-tr-sm"
                         : "bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-tl-sm"
                     )}>
                       {msg.text}
-
-                      {/* Mock Products display */}
-                      {msg.products && (
-                        <div className="mt-3 flex gap-2 overflow-x-auto pb-1 no-scrollbar">
-                          {[1, 2, 3].map((p) => (
-                            <div key={p} className="flex-shrink-0 w-16 h-16 bg-white/20 rounded-lg border border-white/20 backdrop-blur-sm p-1 flex flex-col items-center justify-center gap-1">
-                              <div className="w-8 h-8 bg-white/30 rounded-md" />
-                              <div className="w-10 h-1.5 bg-white/40 rounded-full" />
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
                     </div>
-                    
+
                     <div className={cn(
                       "flex items-center gap-2 mt-1.5",
                       msg.role === "user" ? "justify-end" : "justify-start"
