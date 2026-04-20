@@ -262,8 +262,12 @@ export function PricingSection4() {
                 </div>
               )}
               <CardHeader className="text-left pb-4">
-                <div className="flex justify-between">
+                <div className="flex items-center justify-between gap-2">
                   <h3 className="text-2xl font-semibold text-gray-900">{plan.name}</h3>
+                  <div className="flex items-center gap-1.5 bg-gray-50 border border-gray-100 rounded-full px-2.5 py-1 shrink-0">
+                    <img src="/images/openai.svg" className="h-3 w-auto opacity-70" alt="OpenAI" />
+                    <span className="text-[11px] font-semibold text-gray-500">GPT-4.1</span>
+                  </div>
                 </div>
                 <div className="flex items-baseline mt-4">
                   <span className="text-4xl font-bold tracking-tight text-gray-900">
