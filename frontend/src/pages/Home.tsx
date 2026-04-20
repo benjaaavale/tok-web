@@ -72,13 +72,21 @@ function Home() {
               <div
                 className="hidden md:block h-full w-full"
                 style={{
-                  backgroundImage: `url(/images/app-screenshot.png?v=1775508407)`,
+                  backgroundImage: `url(/images/app-screenshot.png?v=1779200000)`,
                   backgroundSize: 'contain',
                   backgroundPosition: 'top center',
                   backgroundRepeat: 'no-repeat',
                 }}
               />
-              <div className="md:hidden h-full w-full bg-[#111]" />
+              <div
+                className="md:hidden h-full w-full"
+                style={{
+                  backgroundImage: `url(/images/app-screenshot-mobile.png?v=1779200000)`,
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'top center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+              />
             </ContainerScroll>
           </div>
         </section>
