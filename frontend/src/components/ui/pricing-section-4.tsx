@@ -45,7 +45,7 @@ const plans = [
     popular: true,
     includes: [
       "Agente IA entrenado con tu información",
-      "Conecta hasta 2 canales de mensajería",
+      "Conecta todos tus canales de mensajería",
       "Respuestas automáticas 24/7",
       "Plantillas de agentes",
       "Campañas outbound",
@@ -63,11 +63,11 @@ const plans = [
     price: 499990,
     yearlyDiscount: 23,
     conversations: "5.000",
-    buttonText: "Contactar Ventas",
+    buttonText: "Comenzar",
     buttonVariant: "outline" as const,
     includes: [
       "Agente IA entrenado con tu información",
-      "Conecta hasta 5 canales de mensajería",
+      "Conecta todos tus canales de mensajería",
       "Respuestas automáticas 24/7",
       "Plantillas de agentes",
       "Campañas outbound",
@@ -345,7 +345,7 @@ export function PricingSection4() {
       </div>
 
       <p className="text-center text-xs text-gray-400 mt-4 px-4 relative z-10">
-        * Se cobra $300 + IVA por cada conversación adicional que supere el límite mensual del plan.
+        * Se cobra $200 + IVA por cada conversación adicional que supere el límite mensual del plan.
       </p>
     </div>
   );

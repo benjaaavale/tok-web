@@ -17,6 +17,7 @@ export function ButtonColorful({
                 "relative h-10 px-4 overflow-hidden",
                 "bg-blue-600 hover:bg-blue-700 text-white border-0",
                 "transition-all duration-200",
+                "focus-visible:ring-0 focus-visible:ring-offset-0 focus:outline-none",
                 "group",
                 className
             )}

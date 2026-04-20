@@ -141,7 +141,7 @@ function Home() {
                 />
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Un set completo de herramientas de ventas diseñado para llevar tu canal de WhatsApp B2B en piloto automático.
+                Un set completo de herramientas diseñado para llevar tus canales de venta en piloto automático.
               </p>
             </div>
             

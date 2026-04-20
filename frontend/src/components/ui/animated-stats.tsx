@@ -178,10 +178,6 @@ const StatVisual = ({ id, color }: { id: string; color: string }) => {
           style={{ height: `${h}%` }}
         />
       ))}
-      <div className="flex flex-col justify-end gap-1 ml-2 h-full pb-0.5">
-        <span className="text-[11px] text-gray-400">antes</span>
-        <span className="text-[11px] font-semibold text-gray-700">3x</span>
-      </div>
     </div>
   );
 

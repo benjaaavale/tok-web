@@ -124,7 +124,7 @@ export function InteractiveFeatureShowcase() {
         <div className="flex flex-col space-y-2 relative lg:h-[600px] lg:overflow-hidden">
 
           {/* Vertical progress line */}
-          <div className="absolute left-[31px] top-8 bottom-8 w-[1px] bg-gray-200 dark:bg-zinc-800" />
+          <div className="absolute left-[40px] top-[40px] bottom-[56px] w-[1px] bg-gray-200 dark:bg-zinc-800" />
 
           {features.map((feature, index) => {
             const isActive = index === activeIndex;
