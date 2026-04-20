@@ -2,6 +2,8 @@ import { useRef, useEffect, useState, memo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   IconBrandWhatsapp,
+  IconBrandInstagram,
+  IconBrandMessenger,
   IconFileText,
   IconRocket,
 } from "@tabler/icons-react";
@@ -13,6 +15,7 @@ const steps = [
   {
     number: "01",
     icon: <IconBrandWhatsapp className="w-6 h-6" stroke={1.6} />,
+    channelStack: true,
     title: "Conecta tus canales",
     description:
       "Vincula WhatsApp, Instagram o Messenger en minutos. Sin configuraciones complejas ni código.",
@@ -25,7 +28,7 @@ const steps = [
     icon: <IconFileText className="w-6 h-6" stroke={1.6} />,
     title: "Entrena a tu Agente IA",
     description:
-      "Sube tus documentos, PDFs e información de tu negocio. La IA aprende tu tono, tus servicios y tus precios.",
+      "Sube documentos, PDFs o escribe directamente la información de tu negocio. La IA aprende tu tono, tus servicios y tus precios.",
     color: "from-blue-500 to-cyan-500",
     iconBg: "bg-blue-50 dark:bg-blue-500/10",
     iconColor: "text-blue-600 dark:text-blue-400",
@@ -45,6 +48,26 @@ const steps = [
 /* ------------------------------------------------------------------ */
 /* Step card                                                           */
 /* ------------------------------------------------------------------ */
+const ChannelStack = () => (
+  <motion.div
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+    className="relative z-10 flex items-center justify-center mb-5 will-change-transform"
+  >
+    <div className="flex -space-x-3">
+      <div className="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center border-[3px] border-white dark:border-gray-900 shadow-md z-30">
+        <IconBrandWhatsapp className="w-7 h-7 text-white" stroke={1.6} />
+      </div>
+      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center border-[3px] border-white dark:border-gray-900 shadow-md z-20">
+        <IconBrandInstagram className="w-7 h-7 text-white" stroke={1.6} />
+      </div>
+      <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center border-[3px] border-white dark:border-gray-900 shadow-md z-10">
+        <IconBrandMessenger className="w-7 h-7 text-white" stroke={1.6} />
+      </div>
+    </div>
+  </motion.div>
+);
+
 const StepCard = memo(
   ({
     step,
@@ -61,17 +84,21 @@ const StepCard = memo(
       className="relative flex flex-col items-center text-center group"
     >
       {/* Icon container */}
-      <motion.div
-        whileHover={{ scale: 1.08, rotate: 3 }}
-        transition={{ type: "spring", stiffness: 400, damping: 15 }}
-        className={`relative z-10 w-16 h-16 rounded-2xl ${step.iconBg} ${step.iconColor} flex items-center justify-center mb-5 will-change-transform`}
-      >
-        {step.icon}
-        {/* Glow */}
-        <div
-          className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 pointer-events-none`}
-        />
-      </motion.div>
+      {(step as any).channelStack ? (
+        <ChannelStack />
+      ) : (
+        <motion.div
+          whileHover={{ scale: 1.08, rotate: 3 }}
+          transition={{ type: "spring", stiffness: 400, damping: 15 }}
+          className={`relative z-10 w-16 h-16 rounded-2xl ${step.iconBg} ${step.iconColor} flex items-center justify-center mb-5 will-change-transform`}
+        >
+          {step.icon}
+          {/* Glow */}
+          <div
+            className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 pointer-events-none`}
+          />
+        </motion.div>
+      )}
 
       {/* Title */}
       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
