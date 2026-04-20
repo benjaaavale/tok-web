@@ -176,7 +176,7 @@ function Home() {
         <section className="py-32 relative overflow-hidden z-10">
           <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 text-black dark:text-white">
-              ¿Listo para automatizar tus <br className="hidden md:block" /> ventas en WhatsApp?
+              ¿Listo para automatizar tus <br className="hidden md:block" /> ventas por mensajes?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
               Únete a decenas de equipos exitosos que usan ToK para agendar más reuniones y cerrar más ventas mientras duermen.

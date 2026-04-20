@@ -31,6 +31,7 @@ const plans = [
       "Plantillas de agentes",
       "Campañas outbound",
       "Calificación automática de leads",
+      "Capacitación con un experto",
     ],
   },
   {
@@ -54,6 +55,7 @@ const plans = [
       "Agendamiento y Reagendamiento Automático",
       "Calendarios para Múltiples Trabajadores",
       "Reportes de conversaciones",
+      "Capacitación con un experto",
     ],
   },
   {
@@ -78,6 +80,7 @@ const plans = [
       "Reportes avanzados y analíticas",
       "Manager de Cuenta Dedicado",
       "Soporte Prioritario 24/7",
+      "Capacitación con un experto",
     ],
   },
 ];
