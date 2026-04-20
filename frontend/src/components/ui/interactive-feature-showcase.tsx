@@ -95,14 +95,20 @@ const features: Feature[] = [
 export function InteractiveFeatureShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [userSelected, setUserSelected] = useState(false);
 
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || userSelected) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % features.length);
-    }, 6000);
+    }, 9000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [isHovered, userSelected]);
+
+  const handleSelect = (index: number) => {
+    setActiveIndex(index);
+    setUserSelected(true);
+  };
 
   const activeFeature = features[activeIndex];
 
@@ -127,7 +133,7 @@ export function InteractiveFeatureShowcase() {
             return (
               <div
                 key={feature.id}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handleSelect(index)}
                 className="relative z-10 cursor-pointer"
               >
                 <div className={cn(

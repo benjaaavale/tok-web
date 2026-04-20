@@ -305,6 +305,7 @@ DetailPanel.displayName = "DetailPanel";
 /* ------------------------------------------------------------------ */
 export function AnimatedStats() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [userSelected, setUserSelected] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -324,14 +325,19 @@ export function AnimatedStats() {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-cycle through stats every 5s
+  // Auto-cycle through stats every 8s, stops if user clicked
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || userSelected) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % stats.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
-  }, [inView]);
+  }, [inView, userSelected]);
+
+  const handleSelect = (index: number) => {
+    setActiveIndex(index);
+    setUserSelected(true);
+  };
 
   const activeStat = stats[activeIndex];
 
@@ -386,7 +392,7 @@ export function AnimatedStats() {
                 key={stat.id}
                 stat={stat}
                 isActive={activeIndex === index}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handleSelect(index)}
               />
             ))}
           </div>
