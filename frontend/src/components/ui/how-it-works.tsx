@@ -81,7 +81,7 @@ const StepCard = memo(
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="relative flex flex-col items-center text-center group"
+      className="relative z-10 flex flex-col items-center text-center group"
     >
       {/* Icon container */}
       {(step as any).channelStack ? (
