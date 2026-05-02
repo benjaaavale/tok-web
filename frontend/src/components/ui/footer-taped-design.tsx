@@ -83,7 +83,7 @@ export const FooterTaped = () => {
         <div className="pt-8 pb-2 flex flex-col items-center gap-3">
           <p className="text-xs uppercase tracking-widest text-gray-400 font-medium">Apoyado por</p>
           <img
-            src="/images/openbeauchef.png"
+            src="/images/openbeauchef.webp"
             alt="OpenBeauchef"
             className="h-8 md:h-9 w-auto object-contain opacity-90"
           />
