@@ -183,7 +183,7 @@ function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <ButtonColorful className="h-14 px-8 text-lg rounded-full" label="Empieza tu Prueba Gratis" />
-              <button className="h-14 px-8 text-lg font-medium rounded-full bg-white/80 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 transition-colors text-black dark:text-white border border-gray-200 dark:border-white/10 backdrop-blur-md">
+              <button className="h-14 px-8 text-lg font-medium rounded-full bg-white/80 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 transition-colors text-black dark:text-white border border-gray-200 dark:border-white/10 backdrop-blur-md focus:outline-none focus-visible:outline-none focus-visible:ring-0">
                 Hablar con Ventas
               </button>
             </div>

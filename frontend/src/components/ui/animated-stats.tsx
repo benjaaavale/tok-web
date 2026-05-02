@@ -394,7 +394,7 @@ export function AnimatedStats() {
           </div>
 
           {/* Right side: detail panel */}
-          <div className="min-h-[320px] flex items-center rounded-2xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 p-8 md:p-10 shadow-xl dark:shadow-none">
+          <div className="h-[440px] md:h-[460px] flex items-center rounded-2xl bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800 p-8 md:p-10 shadow-xl dark:shadow-none overflow-hidden">
             <AnimatePresence mode="wait">
               <DetailPanel stat={activeStat} />
             </AnimatePresence>
