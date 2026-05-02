@@ -79,10 +79,20 @@ export const FooterTaped = () => {
           </div>
         </div>
 
+        {/* Apoyado por */}
+        <div className="pt-8 pb-2 flex flex-col items-center gap-3">
+          <p className="text-xs uppercase tracking-widest text-gray-400 font-medium">Apoyado por</p>
+          <img
+            src="/images/openbeauchef.png"
+            alt="OpenBeauchef"
+            className="h-8 md:h-9 w-auto object-contain opacity-90"
+          />
+        </div>
+
         {/* Bottom bar */}
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-gray-400">
-          <p>© {currentYear} ToK. Todos los derechos reservados.</p>
-          <p>Hecho con ♥ en Chile 🇨🇱</p>
+        <div className="pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-gray-400 border-t border-gray-100 mt-6">
+          <p className="pt-4">© {currentYear} ToK. Todos los derechos reservados.</p>
+          <p className="pt-4 sm:pt-4">Hecho con ♥ en Chile 🇨🇱</p>
         </div>
 
       </div>
